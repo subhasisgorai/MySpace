@@ -1,6 +1,5 @@
 from copy import deepcopy
 
-from algo.dfs import dfs
 from algo.graph import Graph
 
 
@@ -36,12 +35,6 @@ g.insert_edge(c, e)
 g.insert_edge(d, f)
 g.insert_edge(e, f)
 
-result = {a: None}
-dfs(g, a, result)
-print result
-
 closure = floyd_warshall(g)
-starting_vertex = [vertex for vertex in closure.vertices() if vertex.element() == 'a'][0]
-result = {starting_vertex: None}
-dfs(closure, a, result)
-print 'after computing closure: {}'.format(result)
+print closure.get_edge(a, f) 
+ 

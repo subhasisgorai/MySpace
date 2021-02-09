@@ -11,13 +11,22 @@ class Vertex:
         return self._element
 
     def __hash__(self):  # will allow vertex to be a map/set key 
-        return hash(id(self))
+        return hash(self.element())
     
     def __str__(self):
         return self._element
     
     def __repr__(self):
         return self.__str__()
+    
+    def __eq__(self, other):
+        return (
+            self.__class__ == other.__class__ and 
+            self.element() == other.element()
+        )
+    
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
 
 class Edge:
@@ -43,14 +52,23 @@ class Edge:
         return self._element
     
     def __hash__(self):  # will allow edge to be a map/set key
-        return hash((self._origin, self._destination))
+        return hash(self.endpoints)
     
     def __str__(self):
         return '-'.join((str(self._origin), str(self._destination)))
     
     def __repr__(self):
         return self.__str__()
-
+    
+    def __eq__(self, other):
+        return (
+            self.__class__ == other.__class__ and 
+            self.endpoints() == other.endpoints()
+        )
+    
+    def __ne__(self, other):
+        return not self.__eq__(other)
+    
     
 class Graph:
     ''' Representation of a simple graph using adjacency map '''

@@ -3,9 +3,10 @@ from algo.graph import Graph
 
 def bfs(graph, source, discovered):
     level = [source]
-    while len(level) > 0:
+    while level:
         next_level = list()
         for u in level:
+            print 'now visiting: {}'.format(u)
             for e in graph.incident_edges(u):
                 v = e.opposite(u)
                 if v not in discovered:
