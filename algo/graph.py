@@ -52,7 +52,7 @@ class Edge:
         return self._element
     
     def __hash__(self):  # will allow edge to be a map/set key
-        return hash(self.endpoints)
+        return hash(self.endpoints())
     
     def __str__(self):
         return '-'.join((str(self._origin), str(self._destination)))
