@@ -1,54 +1,47 @@
-import collections
+from collections import namedtuple
 from pprint import pprint
+from algo.union_find import Partition
 
-Shape = collections.namedtuple('Shape', ('id', 'coordinates'))
-
-
-def hash_function(self):
-    return hash(self.id)
+Node = namedtuple('Node', ('x', 'y'))
 
 
-Shape.__hash__ = hash_function
+class GridAsGraph:
 
+    def __init__(self, grid):
+        if grid:
+            self.all_nodes = list()
+            m = len(grid)
+            n = len(grid[0])
+            for x in range(m):
+                for y in range(n):
+                    if matrix[x][y] == 1:
+                        self.all_nodes.append(Node(x , y))
 
-def count_num_shapes(matrix):
-    if not matrix:
-        return 0
+    def neighbors(self, current_node):
+        return [node for node in 
+                    map(Node, (current_node.x - 1, current_node.x + 1, current_node.x, current_node.x),
+                        (current_node.y, current_node.y, current_node.y - 1, current_node.y + 1)) 
+                    if node in self.all_nodes]
+        
+    def merge_neighbors(self):
+        p = Partition()
+        positions = dict()
+        
+        for node in self.all_nodes:
+            positions[node] = p.make_group(node)
+            
+        for node in self.all_nodes:
+            for neighbor in self.neighbors(node):
+                a = p.find(positions[node])
+                b = p.find(positions[neighbor])
+                
+                if a != b:
+                    p.union(a, b)
+        
+        return p
     
-    coordinate_shape_mapping = dict()   
-
-    def merge_shapes():
-        for i in range(len(matrix)):
-            for j in range(len(matrix[0])):
-                if matrix[i][j] == 1:
-                    current_shape = coordinate_shape_mapping[(i, j)]
-                    for temp_ord in ((i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)):
-                        if (0 <= temp_ord[0] < len(matrix)
-                            and 0 <= temp_ord[1] < len(matrix[0])):
-                            if matrix[temp_ord[0]][temp_ord[1]] == 1:
-                                temp_shape = coordinate_shape_mapping[(temp_ord[0], temp_ord[1])]
-                                new_shape = Shape(current_shape.id + '_' + temp_shape.id,
-                                                  current_shape.coordinates.union(temp_shape.coordinates))
-                                coordinate_shape_mapping[(i, j)] = coordinate_shape_mapping[(temp_ord[0], temp_ord[1])] = new_shape
-                                temp_shape = None
-                    current_shape = None
-       
-    def build_initial_shapes(): 
-        id_counter = 0
-       
-        for i in range(len(matrix)):
-            for j in range(len(matrix[0])):
-                if matrix[i][j] == 1:
-                    id_counter += 1
-                    coordinates = set([(i, j)])
-                    shape = Shape(str(id_counter), coordinates)
-                    coordinate_shape_mapping[(i, j)] = shape
-    
-    build_initial_shapes()
-    merge_shapes()
-   
-    final_shapes = set(coordinate_shape_mapping.values())
-    return len(final_shapes)
+    def count_islands(self):
+        return len(self.merge_neighbors())    
 
 
 if __name__ == '__main__':
@@ -58,4 +51,5 @@ if __name__ == '__main__':
         [0, 0, 0, 0, 0],
         [1, 0, 1, 0, 1]]
     pprint(matrix, width=32)
-    print count_num_shapes(matrix)
+    graph = GridAsGraph(matrix)
+    print 'Number of islands: {}'.format(graph.count_islands())

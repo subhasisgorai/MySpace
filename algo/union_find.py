@@ -23,8 +23,15 @@ class Partition:
             
         def element(self):
             return self._element
+        
+        def container(self):
+            return self._container
+        
+    def __init__(self):
+        self.num_groups = 0
     
     def make_group(self, element):
+        self.num_groups += 1
         return self.Position(self, element)
     
     def find(self, p):
@@ -45,4 +52,8 @@ class Partition:
             else:
                 a._parent = b
                 b._size += a._size
+            self.num_groups -= 1
+            
+    def __len__(self):
+        return self.num_groups
         
