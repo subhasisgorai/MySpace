@@ -6,21 +6,18 @@
 
 
 def largest_rectangle_area(heights):
-    ret = 0
-    mono_stack = list()
+    stack, ans = list(), 0
     heights.append(0)
-    for i, v in enumerate(heights):
-        while mono_stack and heights[mono_stack[-1]] > v:
-            height = heights[mono_stack.pop()]
-            if mono_stack:
-                length = i - mono_stack[-1] - 1
+    for i, height in enumerate(heights):
+        while stack and heights[stack[-1]] > height:
+            curr_height = heights[stack.pop()]
+            if stack:
+                length = i - stack[-1] - 1
             else:
                 length = i
-            ret = max(ret, height * length)
-        mono_stack.append(i)
-        # print 'monotonic increasing stack: {}'.format(
-        #    map(lambda item: heights[item], mono_stack))
-    return ret
+            ans = max(ans, curr_height * length)       
+        stack.append(i)
+    return ans
 
 
 if __name__ == '__main__':

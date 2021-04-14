@@ -1,5 +1,5 @@
-from algo.adaptable_q import AdaptableHeapPriorityQueue
-from algo.graph import Graph
+from ds.adaptable_q import AdaptableHeapPriorityQueue
+from ds.graph import Graph
 
 
 def shortest_path_lengths(g, src):
@@ -56,8 +56,8 @@ if __name__ == '__main__':
     a = g.insert_vertex('a')
     b = g.insert_vertex('b')
     
-    g.insert_edge(a, b, 2)
-    g.insert_edge(b, a, 3)
+    g.insert_edge(a, b, 3)
+    g.insert_edge(b, a, 2)
     
     result_cloud = shortest_path_lengths(g, a)
     print result_cloud

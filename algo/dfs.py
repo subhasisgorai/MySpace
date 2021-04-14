@@ -1,4 +1,4 @@
-from algo.graph import Graph
+from ds.graph import Graph
 
 
 def dfs(graph, source, discovered):

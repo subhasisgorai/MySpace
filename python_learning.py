@@ -596,7 +596,7 @@ print final_result
 ''' A brief introduction to Regular Expression (regex)
     We all know Regular Expressions, in fact we all use regex in our day to day life.
     I will touch few important aspects on how to use regex in Python.
-    Well, let's start. Normally regex matches only once, not neessarily words bounded by word boundary i.e. it matches substring.
+    Well, let's start. Normally regex matches only once, not necessarily words bounded by word boundary i.e. it matches substring.
     Python 're' module provides regex support.
 '''
 match = re.search('ample', 'A sample sentence with sample words')  # re.search(pattern, text), match object stores the search result
@@ -655,14 +655,14 @@ find_match('a+', 'Subhaaaasis')
     
     Character sets with square bracket []
         matches any single character present in the character set specified, i.e. [\w'-] matches any word character, single quote, or hyphen. Here, - signifies range, ^ means not i.e. [^f-m] matches 
-        any single character that is not in the range f-m. We can specify multiple ranges as well, i.e. [A-Za-z0-9] mathces single character/digit either in A-Z or a-z or 0-9.
+        any single character that is not in the range f-m. We can specify multiple ranges as well, i.e. [A-Za-z0-9] matches single character/digit either in A-Z or a-z or 0-9.
         
     Group Extraction:
         Let's say given the following sentence: Subhasis's email id is subhasig@yahoo-inc.com and cell number: +91-988-6549-365. He stays in Bangalore.
-        Now we need to extract email-id, cell number and location. Can we solve this based on the discussion we had so far? Well, I think we can form individual patterns to match, but extacting all these
+        Now we need to extract email-id, cell number and location. Can we solve this based on the discussion we had so far? Well, I think we can form individual patterns to match, but extracting all these
         information in single execution could be little difficult.
         'Group' in regex allows to cherry-pick parts of the matching text. For group extraction we use parenthesis (). Basically we need to write a pattern as per the information we are looking for, additionally
-        we should put parenthesised groups for the parts we are interested in.
+        we should put parenthesized groups for the parts we are interested in.
         We have to enhance find_match method a bit to get the groups info back, let's name it find_match_with_groups(pattern, text)
         
 '''
@@ -713,8 +713,8 @@ timeit.repeat(stmt='test_str = "cat on mat";matches = re.findall(pattern, test_s
 
 ''' We will see (+) & (-)ve lookahead & lookbehind
     While matching a pattern regex engine can be also look ahead or look behind as well. Let's take an example, given a sample string +91-3244-275597 which is an Indian landline number. We have to find out the STD code.
-    How we can extract that? Let's see, basically we have to extract the digits, preceeded by +91- and followed by '-' and couple of digits.
-    Going by the above logic let's try to form the following pattern: r'(?<=\+91-)(\d+)(?=-\d+), here (?<=pattern1) asserts positive lookbehind, (?=pattern2) assert positive lookahead.  
+    How we can extract that? Let's see, basically we have to extract the digits, preceded by +91- and followed by '-' and couple of digits.
+    Going by the above logic let's try to form the following pattern: r'(?<=\+91-)(\d+)(?=-\d+), here (?<=pattern1) asserts positive look behind, (?=pattern2) assert positive lookahead.  
 '''    
 sample_str = '+91-3244-275597'
 match = re.search(r'(?<=\+91-)(\d+)(?=-\d+)', sample_str)

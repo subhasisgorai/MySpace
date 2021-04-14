@@ -27,6 +27,12 @@ class Partition:
         def container(self):
             return self._container
         
+        def __str__(self):
+            return 'element: {}, parent: {}'.format(self._element, self._parent) 
+        
+        def __repr__(self):
+            return self.__str__()
+        
     def __init__(self):
         self.num_groups = 0
     
