@@ -2,7 +2,7 @@ from collections import deque
 from collections import namedtuple
 from pprint import pprint
 
-from algo.union_find import Partition
+from ds.union_find import Partition
 from timeit import repeat
 
 Node = namedtuple('Node', ('x', 'y'))

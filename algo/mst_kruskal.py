@@ -1,6 +1,6 @@
-from algo.graph import Graph
-from algo.priority_queue import HeapPriorityQueue
-from algo.union_find import Partition
+from ds.graph import Graph
+from ds.priority_queue import HeapPriorityQueue
+from ds.union_find import Partition
 
 
 def mst_kruskal(g):
