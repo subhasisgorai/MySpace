@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-from algo.graph import Graph
+from ds.graph import Graph
 
 
 def floyd_warshall(g):

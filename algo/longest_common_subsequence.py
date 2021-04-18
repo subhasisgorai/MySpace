@@ -1,29 +1,22 @@
 from pprint import pprint
 
 
-def find_longest_common_substring(str1, str2):
-    if str1 and str2:
-        result = [[0 for _ in range(len(str2))] for i in range(len(str1))]
-        for i in range(len(str1)):
-            for j in range(len(str2)):
-                if str1[i] == str2[j]:
-                    result[i][j] = 1 + (result[i - 1][j - 1] if i - 1 >= 0 and j - 1 >= 0 else 0)
+def find_longest_common_subsequence(text1, text2):
+    if text1 and text2:
+        result = [[0] * len(text2) for _ in range(len(text1))]
+        for i, c1 in enumerate(text1):
+            for j, c2 in enumerate(text2):
+                if c1 == c2:
+                    result[i][j] = 1 + (result[i-1][j-1] if i-1 >= 0 and j-1 >= 0 else 0)
+                else:
+                    result[i][j] = max(result[i-1][j], result[i][j-1])
         pprint(result, width=32)
-        return find_max_in_the_grid(result)
-    return 0
-
-
-def find_max_in_the_grid(data):
-    if data:
-        max_num = 0
-        for i in range(len(data)):
-            inner_array = data[i]
-            for j in range(len(inner_array)):
-                max_num = max(max_num, data[i][j])
-        return max_num
+        return result[len(text1)-1][len(text2)-1]
 
 
 if __name__ == '__main__':
-    print find_longest_common_substring('fish', 'fosh')
-    print find_longest_common_substring('fort', 'fosh')
-    print find_longest_common_substring('microsoft', 'cross')
+    print find_longest_common_subsequence('fish', 'fosh')
+    print find_longest_common_subsequence('fort', 'fosh')
+    print find_longest_common_subsequence('microsoft', 'cross')
+    print find_longest_common_subsequence('fifo', 'fosh')
+    print find_longest_common_subsequence('ufo', 'surround')
