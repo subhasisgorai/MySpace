@@ -132,7 +132,7 @@ def find_next_greater_element_in_circular_array(arr, element):
         result = [None] * len(arr)
         mono_stack = list()
         n = len(arr)
-        for i in range(2*n - 1, -1, -1):
+        for i in range(2 * n - 1, -1, -1):
             while mono_stack and mono_stack[-1] <= arr[i % n]:
                 mono_stack.pop()
             result[i % n] = mono_stack[-1] if mono_stack else -1
@@ -144,6 +144,80 @@ def find_next_greater_element_in_circular_array(arr, element):
          
     return -1
 
+
+def power(x, y):
+    result = 1.0
+    if y < 0:
+        x, y = 1.0 / x, -y
+        
+    while y:
+        if y & 1:
+            result *= x
+        x, y = x * x, y >> 1
+    
+    return result
+
+
+# Utility function to segregate array such that even numbers appear before than odds
+def even_odd_segregation(num_array):
+    if num_array:
+        low, high = 0, len(num_array) - 1
+        while low < high:
+            if num_array[low] % 2 == 0:
+                low += 1
+            else:
+                num_array[low], num_array[high] = num_array[high], num_array[low]
+                high -= 1
+
+
+# Given a string s, return true if the s can be palindrome after deleting at most one character from it.
+def valid_palindrome(s):
+    if s:
+
+        def valid_palindrome(low, high, num_missed_allowed=1):
+            while low < high:
+                if s[low] != s[high]:
+                    if num_missed_allowed > 0:
+                        if (s[low + 1] == s[high] and 
+                                s[low] == s[high - 1]):
+                            return any([valid_palindrome(low + 1, high, 0), valid_palindrome(low, high - 1, 0)])
+                        elif s[low + 1] == s[high]:
+                            low += 1
+                            num_missed_allowed -= 1
+                        elif s[low] == s[high - 1]:
+                            high -= 1
+                            num_missed_allowed -= 1
+                        else:
+                            return False
+                    else:
+                        return False
+                else:
+                    low += 1
+                    high -= 1
+            
+            return True
+        
+        return valid_palindrome(0, len(s) - 1)
+
+from string import digits
+
+def base_neg_2(n):
+    def modified_divmod(num, base):
+        result = dict()
+        if (num, base) not in result:
+            div, mod = divmod(num, base)
+            if mod < 0:
+                temp = (div * base) + base
+                div, mod = temp // base, num - temp
+            result[(num, base)] = (div, mod)
+        return result[(num, base)]
+    
+    def construct_from_base(decimal_number, base):
+        return ('' if decimal_number == 0 else 
+                    construct_from_base(modified_divmod(decimal_number, base)[0], base) + 
+                        digits[modified_divmod(decimal_number, base)[1]]) 
+
+    return '0' if n == 0 else construct_from_base(n, -2)
 
 if __name__ == '__main__':
     # print n_queens(4)
@@ -157,7 +231,23 @@ if __name__ == '__main__':
     
     # print levensthein_distance('polynomial', 'exponential')
     
-    arr = [10, 3, 4, 6, 9]
-    print find_next_greater_element(arr, 9) 
-    print find_next_greater_element_in_circular_array(arr, 9) 
+    # arr = [10, 3, 4, 6, 9]
+    # print find_next_greater_element(arr, 9) 
+    # print find_next_greater_element_in_circular_array(arr, 9) 
     
+    # print power(2, -20)
+    
+    # num_array = [2, 3, 5, 8, 9, 11, 13, 17]
+    # even_odd_segregation(num_array)
+    # print num_array
+    
+    # print valid_palindrome('aguokepatgbnvfqmgmlcupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupuculmgmqfvnbgtapekouga')
+    # print valid_palindrome("pidbliassaqozokmtgahluruufwbjdtayuhbxwoicviygilgzduudzgligyviciowxbhuyatdjbwfuurulhagtmkozoqassailbdip")
+    
+    print base_neg_2(0)
+    print base_neg_2(2)
+    print base_neg_2(3)
+    print base_neg_2(4)
+
+
+
