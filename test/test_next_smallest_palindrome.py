@@ -9,7 +9,7 @@ class TestNextSmallestPalindrome(unittest.TestCase):
         
     def test_optimized_method(self):
         samples = [111, 231598, 12345, 54792, 77777, 777777, 239756,
-                        101010, 713322, 94187978149, 12345678, 89998, 899998, 888, 909, 122131]
+                        101010, 713322, 94187978149, 12345678, 89998, 899998, 888, 909, 122131, 1, 12]
         for sample in samples:
             print 'original {}, brute-force {}, optimized {}'.format(
                 sample, find_brute_force(sample), find_optimized_manner(sample))
