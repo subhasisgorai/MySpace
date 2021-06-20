@@ -32,9 +32,7 @@ def left_bound(data, target):
     low, high = 0, len(data) - 1
     while low <= high:
         mid = low + (high - low) // 2
-        if data[mid] == target:
-            high = mid - 1
-        elif data[mid] < target:
+        if data[mid] < target:
             low = mid + 1
         else:
             high = mid - 1
@@ -77,6 +75,6 @@ if __name__ == '__main__':
                 Student('test5', 90.4), Student('test3', 87.3), Student('test4', 85.6) ]
     print search_student(students, Student('test2', 92.7), comp_gpa)
     
-    print left_bound([1, 2, 2, 4, 4, 4, 5, 5], 3)
+    print left_bound([1, 2, 2, 4, 4, 4, 5, 5], 4)
     print right_bound([1, 2, 2, 4, 4, 4, 5, 5], 4)
     
