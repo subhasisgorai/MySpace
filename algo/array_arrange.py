@@ -2,7 +2,7 @@ from copy import copy
 from collections import defaultdict
 
 '''
-    Given an array of n integers, how can we re-arrange the numbers in it such 
+    Given an array of n integers, how can we rearrange the numbers in it such 
     that for any two numbers a [i] and a [j] (i < j), their average does not 
     lie between i and j. 
     This function has got an extremely poor time complexity of O(n.n!)
