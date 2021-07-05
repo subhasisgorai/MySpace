@@ -1,7 +1,7 @@
 from collections import deque
 from collections import namedtuple
 from copy import copy
-from pprint import pprint
+# from pprint import pprint
 
 
 def n_queens(n): 
