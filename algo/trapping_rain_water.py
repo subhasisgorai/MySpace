@@ -13,7 +13,7 @@ def trap_water(heights):
                     trapped_water += effective_height * effective_length
             stack.append(i)
             print 'monotonic decreasing stack: {}'.format(
-            map(lambda item: heights[item], stack))
+                map(lambda item: heights[item], stack))
         return trapped_water
 
 
