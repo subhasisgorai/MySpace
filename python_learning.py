@@ -1228,4 +1228,3 @@ def fun(**kwargs):
     print kwargs
     
 fun(name='Subhasis', age=35, city='Bangalore')
-
