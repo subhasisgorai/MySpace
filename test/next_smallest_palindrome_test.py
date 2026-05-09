@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 import unittest
 from algo.next_smallest_palindrome import find_brute_force, find_optimized_manner
 
@@ -11,8 +13,8 @@ class TestNextSmallestPalindrome(unittest.TestCase):
         samples = [111, 231598, 12345, 54792, 77777, 777777, 239756,
                         101010, 713322, 94187978149, 12345678, 89998, 899998, 888, 909, 122131, 1, 12]
         for sample in samples:
-            print 'original {}, brute-force {}, optimized {}'.format(
-                sample, find_brute_force(sample), find_optimized_manner(sample))
+            print('original {}, brute-force {}, optimized {}'.format(
+                sample, find_brute_force(sample), find_optimized_manner(sample)))
             self.assertEqual(find_brute_force(sample), find_optimized_manner(sample))
             
     def test_with_zero(self):

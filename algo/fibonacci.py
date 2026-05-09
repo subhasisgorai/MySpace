@@ -1,5 +1,6 @@
 
 
+from __future__ import print_function
 def fibonacci(n):
     if n <= 1:
         return (n, 0)
@@ -19,8 +20,8 @@ def fibonacci_series():
 
 
 if __name__ == '__main__':
-    print fibonacci(6)
+    print(fibonacci(6))
     
     fibonacci_series = fibonacci_series()
     for i in range(10):
-        print next(fibonacci_series),
+        print(next(fibonacci_series), end=' ')

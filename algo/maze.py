@@ -1,6 +1,6 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import namedtuple
-
-
 def has_path(maze, start, destination):
     if maze:
 
@@ -11,8 +11,8 @@ def has_path(maze, start, destination):
                         all_nodes.append(Cell(i, j))
                         
         def get_neighbors(node):
-            neighbors = zip([node for node in map(Cell, (node.x - 1, node.x + 1, node.x, node.x),
-                            (node.y, node.y, node.y + 1, node.y - 1))], (LEFT, RIGHT, UP, DOWN))
+            neighbors = list(zip([node for node in map(Cell, (node.x - 1, node.x + 1, node.x, node.x),
+                            (node.y, node.y, node.y + 1, node.y - 1))], (LEFT, RIGHT, UP, DOWN)))
             return [zipped for zipped in neighbors if zipped[0] in all_nodes]
         
         def path_finder(node, in_direction):
@@ -31,7 +31,7 @@ def has_path(maze, start, destination):
             else:
                 return any([path_finder(*neighbor) for neighbor in get_neighbors(node)])
         
-        RIGHT, LEFT, UP, DOWN = range(4)
+        RIGHT, LEFT, UP, DOWN = list(range(4))
         shift_with_direction = ((0, 1), (0, -1), (-1, 0), (1, 0))
         all_nodes = list()
         Cell = namedtuple('Cell', ('x', 'y'))
@@ -42,9 +42,9 @@ def has_path(maze, start, destination):
 
     
 if __name__ == '__main__':
-    print(has_path([[0, 0, 1, 0, 0], 
+    print((has_path([[0, 0, 1, 0, 0], 
                     [0, 0, 0, 0, 0], 
                     [0, 0, 0, 1, 0], 
                     [1, 1, 0, 1, 1], 
                     [0, 0, 0, 0, 0]], 
-                [0, 4], [4, 4]))
+                [0, 4], [4, 4])))

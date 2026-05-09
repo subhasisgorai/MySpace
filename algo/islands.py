@@ -1,10 +1,11 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import deque
 from collections import namedtuple
 from pprint import pprint
 
 from ds.union_find import Partition
 from timeit import repeat
-
 Node = namedtuple('Node', ('x', 'y'))
 
 
@@ -78,10 +79,10 @@ if __name__ == '__main__':
     pprint(matrix, width=32)
     
     graph = GridAsGraph(matrix)
-    print 'Number of islands(Union-Find): {}'.format(graph.count_islands())
-    print 'Number of islands(BFS): {}'.format(count_islands(graph))
+    print('Number of islands(Union-Find): {}'.format(graph.count_islands()))
+    print('Number of islands(BFS): {}'.format(count_islands(graph)))
     
-    print '***'.center(20)
+    print('***'.center(20))
     
     matrix = [[0, 0, 0, 0, 0],
               [0, 1, 1, 1, 0],
@@ -91,10 +92,10 @@ if __name__ == '__main__':
     pprint(matrix, width=32)
     
     graph = GridAsGraph(matrix)
-    print 'Number of islands(Union-Find): {}'.format(graph.count_islands())
-    print 'Number of islands(BFS): {}'.format(count_islands(graph))
+    print('Number of islands(Union-Find): {}'.format(graph.count_islands()))
+    print('Number of islands(BFS): {}'.format(count_islands(graph)))
     
-    print '***'.center(20)
+    print('***'.center(20))
     
     matrix = [[1, 1, 1, 1, 0],
               [1, 1, 0, 1, 0],
@@ -102,13 +103,13 @@ if __name__ == '__main__':
               [0, 0, 0, 0, 0]]
     pprint(matrix, width=32)
     graph = GridAsGraph(matrix)
-    print 'Number of islands(Union-Find): {}'.format(graph.count_islands())
-    print 'Number of islands(BFS): {}'.format(count_islands(graph))
+    print('Number of islands(Union-Find): {}'.format(graph.count_islands()))
+    print('Number of islands(BFS): {}'.format(count_islands(graph)))
     
-    print '***'.center(20)
+    print('***'.center(20))
     
-    print '\n'
-    print ' Performance Check '.center(30, '-')
+    print('\n')
+    print(' Performance Check '.center(30, '-'))
     
     SETUP_CODE = '''
 from algo.islands import GridAsGraph
@@ -121,6 +122,6 @@ matrix = [[1, 1, 1, 1, 0],
 graph = GridAsGraph(matrix)
     
     '''
-    print 'Using Union-Find: {}'.format(repeat(stmt="graph.count_islands()", setup = SETUP_CODE, number=100, repeat=3))
-    print 'Using BFS: {}'.format(repeat(stmt="count_islands(graph)", setup = SETUP_CODE, number=100, repeat=3))
+    print('Using Union-Find: {}'.format(repeat(stmt="graph.count_islands()", setup = SETUP_CODE, number=100, repeat=3)))
+    print('Using BFS: {}'.format(repeat(stmt="count_islands(graph)", setup = SETUP_CODE, number=100, repeat=3)))
     

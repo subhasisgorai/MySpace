@@ -1,3 +1,4 @@
+from __future__ import print_function
 def factors(n):
     k = 1
     while k * k < n:
@@ -11,5 +12,5 @@ def factors(n):
 
 if __name__ == '__main__':
     for i in factors(100):
-        print i,
+        print(i, end=' ')
     

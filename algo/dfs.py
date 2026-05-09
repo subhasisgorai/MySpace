@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from ds.graph import Graph
 
 
@@ -46,6 +48,6 @@ g.insert_edge(e, f)
 if __name__ == '__main__':
     result = {a: None}
     dfs(g, a, result)
-    print result
+    print(result)
     
-    print construct_path(a, f, result)
+    print(construct_path(a, f, result))

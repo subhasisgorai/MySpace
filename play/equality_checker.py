@@ -1,3 +1,4 @@
+from __future__ import print_function
 def check_equality(samples, item1, item2):
     if samples and len(samples) > 0 and item1 and item2 :
         if item1 in samples and item1 == item2:
@@ -37,5 +38,5 @@ def __add_to_cloud_and_assign(clouds, cloud, item):
 
         
 if __name__ == '__main__':
-    print check_equality(['a=b', 'b=c', 'c=d', 'd=e', 'b=z', 'k=m'], 'a', 'k')          
-    print check_equality(['a=b', 'b=c', 'c=d', 'd=e', 'b=z', 'k=m'], 'a', 'z')          
+    print(check_equality(['a=b', 'b=c', 'c=d', 'd=e', 'b=z', 'k=m'], 'a', 'k'))          
+    print(check_equality(['a=b', 'b=c', 'c=d', 'd=e', 'b=z', 'k=m'], 'a', 'z'))          

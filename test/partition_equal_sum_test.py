@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import unittest
 from algo.partition_equal_subset_sum import can_partition
 

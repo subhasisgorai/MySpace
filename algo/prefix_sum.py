@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import defaultdict
 
 
@@ -15,7 +17,7 @@ def subarray_sum(arr, k):
 
 
 if __name__ == '__main__':
-    print subarray_sum([1, 1, 1], 2)
-    print subarray_sum([1, 2, 3, 4, 5], 15)
-    print subarray_sum([1, 2, 3, 1, 2, 1], 3)
-    print subarray_sum([3, 5, 2, -2, 4, 1], 5)
+    print(subarray_sum([1, 1, 1], 2))
+    print(subarray_sum([1, 2, 3, 4, 5], 15))
+    print(subarray_sum([1, 2, 3, 1, 2, 1], 3))
+    print(subarray_sum([3, 5, 2, -2, 4, 1], 5))

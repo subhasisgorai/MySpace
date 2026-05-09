@@ -1,6 +1,7 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from copy import copy
 from collections import defaultdict
-
 '''
     Given an array of n integers, how can we rearrange the numbers in it such 
     that for any two numbers a [i] and a [j] (i < j), their average does not 
@@ -36,6 +37,6 @@ def arrange_numbers_no_avg_in_between(arr):
 
 
 if __name__ == '__main__':
-    print arrange_numbers_no_avg_in_between([1, 4, 2, 7])
-    print arrange_numbers_no_avg_in_between([1, 201, 202, 431, 522])
-    print arrange_numbers_no_avg_in_between(list(range(10)))
+    print(arrange_numbers_no_avg_in_between([1, 4, 2, 7]))
+    print(arrange_numbers_no_avg_in_between([1, 201, 202, 431, 522]))
+    print(arrange_numbers_no_avg_in_between(list(range(10))))

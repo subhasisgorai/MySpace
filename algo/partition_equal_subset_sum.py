@@ -1,5 +1,6 @@
 
 
+from __future__ import print_function
 def can_partition(nums):
 
     def summation_helper_count_ways(target):
@@ -29,11 +30,11 @@ if __name__ == '__main__':
     #                                                            can_partition([1, 5, 11, 5]))
     
     nums = [1, 1, 3, 5]
-    print 'Can partition {} into two equal subset:  {}'.format(nums,
-                                                               can_partition(nums))
+    print('Can partition {} into two equal subset:  {}'.format(nums,
+                                                               can_partition(nums)))
     nums = [1, 7, 12, 4]
-    print 'Can partition {} into two equal subset:  {}'.format(nums,
-                                                               can_partition(nums))
+    print('Can partition {} into two equal subset:  {}'.format(nums,
+                                                               can_partition(nums)))
     nums = [1, 7, 12, 5]
-    print 'Can partition {} into two equal subset:  {}'.format(nums,
-                                                               can_partition(nums))
+    print('Can partition {} into two equal subset:  {}'.format(nums,
+                                                               can_partition(nums)))

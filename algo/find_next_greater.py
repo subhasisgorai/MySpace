@@ -11,6 +11,7 @@
 '''
 
 
+from __future__ import print_function
 def find_next_greater_element(arr):
     if arr:
         stack = list()
@@ -38,7 +39,7 @@ def find_next_greater_element_in_circular_array(arr):
 if __name__ == '__main__':
     arr = [2, 1, 2, 4, 3]
     result = find_next_greater_element(arr)
-    print result
+    print(result)
     
     result = find_next_greater_element_in_circular_array(arr)
-    print result
+    print(result)

@@ -1,3 +1,4 @@
+from __future__ import print_function
 def parity_check_brute_force(number):
     result = 0
     while number:
@@ -27,6 +28,6 @@ def parity_check_further_improved_64_bits(number):
 
 
 if __name__ == '__main__':
-    print parity_check_brute_force(0b1100111101)
-    print parity_check_improved(0b1100111101)
-    print parity_check_further_improved_64_bits(0b1100111101)
+    print(parity_check_brute_force(0b1100111101))
+    print(parity_check_improved(0b1100111101))
+    print(parity_check_further_improved_64_bits(0b1100111101))

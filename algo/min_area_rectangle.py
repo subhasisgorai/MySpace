@@ -1,6 +1,6 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import defaultdict
-
-
 def find_min_area_rectangle(points):
     ys_group_by_x = defaultdict(list)
     for x, y in points:
@@ -23,4 +23,4 @@ def find_min_area_rectangle(points):
 
 
 if __name__ == '__main__':
-    print find_min_area_rectangle([[1,1],[1,3],[3,1],[3,3],[2,2]])
+    print(find_min_area_rectangle([[1,1],[1,3],[3,1],[3,3],[2,2]]))

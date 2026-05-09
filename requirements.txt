@@ -1,0 +1,4 @@
+# Python 3.8+
+sortedcontainers>=2.4.0
+matplotlib>=3.10.0
+jupyter>=1.0

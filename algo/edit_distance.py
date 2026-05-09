@@ -1,5 +1,6 @@
 
 
+from __future__ import print_function
 def find_edit_distance(str1, str2):
     assert str1, 'str1 should be a valid non empty string'
     assert str2, 'str2 should be a valid non empty string'
@@ -21,7 +22,7 @@ def find_edit_distance(str1, str2):
 
         
 if __name__ == '__main__':
-    print find_edit_distance('POLYNOMIAL', 'EXPONENTIAL')
-    print find_edit_distance('SUNNY', 'SNOWY')
-    print find_edit_distance('ZEBRA', 'ZEBIA')
-    print find_edit_distance('ZEBRA', 'ABHRA')
+    print(find_edit_distance('POLYNOMIAL', 'EXPONENTIAL'))
+    print(find_edit_distance('SUNNY', 'SNOWY'))
+    print(find_edit_distance('ZEBRA', 'ZEBIA'))
+    print(find_edit_distance('ZEBRA', 'ABHRA'))

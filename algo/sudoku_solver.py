@@ -1,8 +1,8 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from math import sqrt
 from itertools import product
 from pprint import pprint
-
-
 def solve_sudoku(board):
 
     def solve_partial_sudoku(i, j):
@@ -24,7 +24,7 @@ def solve_sudoku(board):
             return not any(
                     val == board[region_size * curr_region_vert + a]
                                     [region_size * curr_region_horz + b]
-                        for a, b in product(range(region_size), repeat=2)
+                        for a, b in product(list(range(region_size)), repeat=2)
                 )
 
         for val in range(1, len(board) + 1):
@@ -38,7 +38,7 @@ def solve_sudoku(board):
              
     empty_cell = '.'
     result = solve_partial_sudoku(0, 0)
-    print('Could solve? {}'.format('Yes' if result else 'No'))
+    print(('Could solve? {}'.format('Yes' if result else 'No')))
 
 
 if __name__ == '__main__':
@@ -51,7 +51,7 @@ if __name__ == '__main__':
              [".", "6", ".", ".", ".", ".", "2", "8", "."],
              [".", ".", ".", "4", "1", "9", ".", ".", "5"],
              [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
-    print 'Initial state of the board:'
+    print('Initial state of the board:')
     pprint(board, width=100)
     solve_sudoku(board)
     pprint(board, width=100)

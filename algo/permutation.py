@@ -12,6 +12,8 @@
             backtrack(Path, Seletion List)
             deselect
 '''
+from __future__ import absolute_import
+from __future__ import print_function
 from copy import copy
 
 result = list()
@@ -40,4 +42,4 @@ def compute_permutation(number):
 
 
 if __name__ == '__main__':
-    print compute_permutation(1234)
+    print(compute_permutation(1234))

@@ -1,4 +1,6 @@
-from heappq import HeapPriorityQueue
+from __future__ import absolute_import
+from __future__ import print_function
+from .heappq import HeapPriorityQueue
 
 
 class AdaptableHeapPriorityQueue(HeapPriorityQueue): 
@@ -60,10 +62,10 @@ if __name__ == '__main__':
     q.add(2, 'test_2')
     q.add(10, 'test_10')
     
-    print q.remove_min()
+    print(q.remove_min())
     
     q.add(1, 'test_1')
     loc_8 = q.add(8, 'test_8')
     q.add(4, 'test_4')
     
-    print q.min()
+    print(q.min())

@@ -1,3 +1,4 @@
+from functools import reduce
 
 
 def find_brute_force(number):
@@ -22,7 +23,7 @@ def find_optimized_manner(number):
         left_arr, mid_arr, right_arr = list(), list(), list()
         
         counter = 0
-        mid = (num_len - 1) / 2
+        mid = (num_len - 1) // 2
         while(counter < mid):
             left_arr.append(num_arr[counter])
             counter += 1
@@ -38,7 +39,7 @@ def find_optimized_manner(number):
         initial_palindrome = __get_back_the_number(left_arr, mid_arr, right_arr)
         
         if initial_palindrome <= number:
-            mid_arr = map(lambda i: i + 1 if i < 9 else 0, mid_arr)
+            mid_arr = [i + 1 if i < 9 else 0 for i in mid_arr]
             if mid_arr[0] == 0:
                 curr_pos = len(left_arr) - 1
                 carry = 1
@@ -66,7 +67,7 @@ def __check_all_digits_nine(num_arr):
 
 
 def __get_back_the_number(left_arr, mid_arr, right_arr):
-    resultant_array = map(str, left_arr + mid_arr + right_arr)
+    resultant_array = list(map(str, left_arr + mid_arr + right_arr))
     return int(reduce(lambda a, b: a + b, resultant_array)) 
 
 
@@ -79,7 +80,7 @@ def __is_even(number):
 
 
 def __convert_num_to_array(number):
-    return map(int, str(number))
+    return list(map(int, str(number)))
 
 
 def __assertValidInteger(sample):

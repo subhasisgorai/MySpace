@@ -6,10 +6,11 @@
             Dictionary non_unit_cost_map in the graph constructor is to override the unit cost.
         2. inaccessible_cells collection in the constructor argument lists down the inaccessible cells. 
 '''
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import namedtuple
 from collections import deque
 import heapq
-
 NodeTup = namedtuple('Node', ('x', 'y', 'cost')) 
 
 
@@ -189,38 +190,38 @@ def test_path_finding_algos():
     g = GridAsGraph(5, 4)
     
     path = bfs_path_finding(g, Node(4, 0), Node(0, 3))
-    print 'BFS: {}'.format(path)
+    print('BFS: {}'.format(path))
 
     path = dijkstra_path_finding(g, Node(4, 0), Node(0, 3))
-    print 'Dijkstra: {}'.format(path)
+    print('Dijkstra: {}'.format(path))
     
     graph_non_uniform_terrain = GridAsGraph(5, 4, diagonal_movement_allowed=True, non_unit_cost_map={(1, 2): 5})
 
     path = dijkstra_path_finding(graph_non_uniform_terrain, Node(4, 0), Node(0, 3))
-    print 'Dijkstra: {}'.format(path)
+    print('Dijkstra: {}'.format(path))
     
     path = heuristic_search(graph_non_uniform_terrain, Node(4, 0), Node(0, 3))
-    print 'Heuristic: {}'.format(path)
+    print('Heuristic: {}'.format(path))
     
     graph_with_barrier = GridAsGraph(5, 4,
                                      diagonal_movement_allowed=True,
                                      inaccessible_cells=[(1, 1), (1, 2), (2, 2), (3, 2)])
     
     path = dijkstra_path_finding(graph_with_barrier, Node(4, 0), Node(0, 3))
-    print 'Dijkstra: {}'.format(path)
+    print('Dijkstra: {}'.format(path))
     
     path = heuristic_search(graph_with_barrier, Node(4, 0), Node(0, 3))
-    print 'Heuristic: {}'.format(path)
+    print('Heuristic: {}'.format(path))
     
     path = a_star(graph_with_barrier, Node(4, 0), Node(0, 3))
-    print 'A*: {}'.format(path)
+    print('A*: {}'.format(path))
     
     final_graph = GridAsGraph(5, 8, diagonal_movement_allowed=True,
                                 non_unit_cost_map={(0, 3): 15, (2 , 3): 20},
                                 inaccessible_cells=[(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6),
                                                          (2, 6), (3, 6), (3, 5), (3, 4), (3, 2), (4, 2)])
     path = a_star(final_graph, Node(4, 0), Node(0, 7))
-    print 'A*: {}'.format(path)
+    print('A*: {}'.format(path))
 
 
 if __name__ == '__main__':

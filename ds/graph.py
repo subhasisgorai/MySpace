@@ -87,7 +87,7 @@ class Graph:
         return len(self._outgoing)
     
     def vertices(self):
-        return self._outgoing.keys()
+        return list(self._outgoing.keys())
     
     def edge_count(self):
         total = sum(len(self._outgoing[v]) for v in self._outgoing)

@@ -1,6 +1,6 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from copy import copy
-
-
 def n_queens(n):
 
     def solve_n_queens(row):
@@ -21,4 +21,4 @@ def n_queens(n):
 
 
 if __name__ == '__main__':
-    print n_queens(4)
+    print(n_queens(4))

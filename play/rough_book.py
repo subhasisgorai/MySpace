@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import deque
 from collections import namedtuple
 from copy import copy
@@ -30,9 +32,9 @@ def knapsack_with_repetition(items, max_weight):
         max_value = list()
         max_value.append(0)
         for w in range(1, max_weight + 1):
-            max_values = [max_value[w - item.weight] + item.value for item in filter(lambda item: item.weight <= w, items)]
+            max_values = [max_value[w - item.weight] + item.value for item in [item for item in items if item.weight <= w]]
             max_value.append(max(max_values) if max_values else 0)
-        print max_value
+        print(max_value)
         return max_value[max_weight]
     return 0
 
@@ -295,7 +297,7 @@ if __name__ == '__main__':
     # print find_next_greater_element_in_circular_array(arr, 9)
     # print n_queens_prac_2(4) 
     
-    print is_match('aab', 'c*a*b')
+    print(is_match('aab', 'c*a*b'))
     
     # print power(2, -20)
     
@@ -306,10 +308,10 @@ if __name__ == '__main__':
     # print valid_palindrome('aguokepatgbnvfqmgmlcupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupuculmgmqfvnbgtapekouga')
     # print valid_palindrome("pidbliassaqozokmtgahluruufwbjdtayuhbxwoicviygilgzduudzgligyviciowxbhuyatdjbwfuurulhagtmkozoqassailbdip")
     
-    print base_neg_2(0)
-    print base_neg_2(2)
-    print base_neg_2(3)
-    print base_neg_2(4)
+    print(base_neg_2(0))
+    print(base_neg_2(2))
+    print(base_neg_2(3))
+    print(base_neg_2(4))
 
 
 

@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import namedtuple
 from bisect import bisect_left
 
@@ -68,13 +70,13 @@ def search_student(students, target, comp_gpa):
 
 if __name__ == '__main__':
     data = [1, 3, 5, 9, 11, 15, 21, 25, 30]
-    print binary_search(data, 21, 0, len(data) - 1)
-    print binary_search_iterative_without_tail_recursion(data, 199)
-    print binary_search_iterative_without_tail_recursion(data, 21)
+    print(binary_search(data, 21, 0, len(data) - 1))
+    print(binary_search_iterative_without_tail_recursion(data, 199))
+    print(binary_search_iterative_without_tail_recursion(data, 21))
     students = [ Student('test1', 95.3), Student('test2', 92.7),
                 Student('test5', 90.4), Student('test3', 87.3), Student('test4', 85.6) ]
-    print search_student(students, Student('test2', 92.7), comp_gpa)
+    print(search_student(students, Student('test2', 92.7), comp_gpa))
     
-    print left_bound([1, 2, 2, 4, 4, 4, 5, 5], 4)
-    print right_bound([1, 2, 2, 4, 4, 4, 5, 5], 4)
+    print(left_bound([1, 2, 2, 4, 4, 4, 5, 5], 4))
+    print(right_bound([1, 2, 2, 4, 4, 4, 5, 5], 4))
     

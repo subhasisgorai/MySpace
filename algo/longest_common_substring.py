@@ -1,6 +1,6 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from pprint import pprint
-
-
 def find_longest_common_substring(str1, str2):
     if str1 and str2:
         result = [[0] * len(str2) for _ in range(len(str1))]
@@ -10,7 +10,7 @@ def find_longest_common_substring(str1, str2):
                     result[i][j] = 1 + (result[i - 1][j - 1] if i - 1 >= 0 and j - 1 >= 0 else 0)
                 else:
                     result[i][j] = 0
-        print 'Grid for [{}] & [{}]:'.format(str1, str2)
+        print('Grid for [{}] & [{}]:'.format(str1, str2))
         pprint(result, width=32)
         return find_max_in_the_grid(result)
     return 0
@@ -27,8 +27,8 @@ def find_max_in_the_grid(data):
 
 
 if __name__ == '__main__':
-    print find_longest_common_substring('fish', 'hish')
-    print find_longest_common_substring('fish', 'hi')
-    print find_longest_common_substring('fish', 'fosh')
-    print find_longest_common_substring('fort', 'fosh')
-    print find_longest_common_substring('microsoft', 'cross')
+    print(find_longest_common_substring('fish', 'hish'))
+    print(find_longest_common_substring('fish', 'hi'))
+    print(find_longest_common_substring('fish', 'fosh'))
+    print(find_longest_common_substring('fort', 'fosh'))
+    print(find_longest_common_substring('microsoft', 'cross'))

@@ -1,4 +1,7 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from  string import hexdigits
+from functools import reduce
 
 
 def convert_base(num_as_str, b1, b2): 
@@ -17,4 +20,4 @@ def convert_base(num_as_str, b1, b2):
 
 
 if __name__ == '__main__': 
-    print convert_base('111011', 2, 16) 
+    print(convert_base('111011', 2, 16)) 

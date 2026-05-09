@@ -1,5 +1,6 @@
 
 
+from __future__ import print_function
 class Student:
 
     def __init__(self, name, grade_point_average):
@@ -24,7 +25,7 @@ if __name__ == '__main__':
         Student('D', 3.2)
     ]
     
-    print sorted(students)
+    print(sorted(students))
     
     students.sort(key=lambda student: student.grade_point_average)
-    print students
+    print(students)

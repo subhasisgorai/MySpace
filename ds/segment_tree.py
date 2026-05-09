@@ -1,5 +1,6 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import namedtuple
-
 Node = namedtuple('Node', ('a', 'b', 'max_value'))
 
 '''
@@ -66,14 +67,14 @@ class SegmentTree:
     
 if __name__ == '__main__':
     arr = [5, 3, 8, 1, 5, 7, 4, 0, 9, 2, 6]
-    print 'The given vector: {}\n'.format(arr)
+    print('The given vector: {}\n'.format(arr))
     st = SegmentTree(arr)
-    print 'In range ({}, {}), maximum value: {}'.format(2, 5, st.get_max_value(2, 5))
-    print 'In range ({}, {}), maximum value: {}'.format(3, 9, st.get_max_value(3, 9))
-    print 'In range ({}, {}), maximum value: {}'.format(2, 3, st.get_max_value(2, 3))
-    print 'In range ({}, {}), maximum value: {}'.format(4, 7, st.get_max_value(4, 7))
-    print 'In range ({}, {}), maximum value: {}'.format(9, 10, st.get_max_value(9, 10))
-    print 'In range ({}, {}), maximum value: {}'.format(0, 0, st.get_max_value(0, 0))
-    print 'In range ({}, {}), maximum value: {}'.format(10, 10, st.get_max_value(10, 10))
-    print 'In range ({}, {}), maximum value: {}'.format(0, 10, st.get_max_value(0, 10))
+    print('In range ({}, {}), maximum value: {}'.format(2, 5, st.get_max_value(2, 5)))
+    print('In range ({}, {}), maximum value: {}'.format(3, 9, st.get_max_value(3, 9)))
+    print('In range ({}, {}), maximum value: {}'.format(2, 3, st.get_max_value(2, 3)))
+    print('In range ({}, {}), maximum value: {}'.format(4, 7, st.get_max_value(4, 7)))
+    print('In range ({}, {}), maximum value: {}'.format(9, 10, st.get_max_value(9, 10)))
+    print('In range ({}, {}), maximum value: {}'.format(0, 0, st.get_max_value(0, 0)))
+    print('In range ({}, {}), maximum value: {}'.format(10, 10, st.get_max_value(10, 10)))
+    print('In range ({}, {}), maximum value: {}'.format(0, 10, st.get_max_value(0, 10)))
     

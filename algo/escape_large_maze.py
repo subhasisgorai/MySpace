@@ -1,6 +1,7 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import namedtuple
 import heapq
-
 '''
     There is a 1 million by 1 million grid on an XY-plane, and the coordinates of each grid square are (x, y).
     We start at the source = [sx, sy] square and want to reach the target = [tx, ty] square. There is also an array of 
@@ -58,7 +59,7 @@ def is_escape_possible_using_dfs_enhanced(blocked, source, target):
         while frontier:
             x, y = frontier.pop()
             if abs(x - sx) + abs(y - sy) > len(blocked) or (x, y) == (tx, ty): return True
-            for nx, ny in map(tuple, map(lambda t1, t2: (t1, t2), (x - 1, x + 1, x, x), (y, y, y - 1, y + 1))):
+            for nx, ny in map(tuple, list(map(lambda t1, t2: (t1, t2), (x - 1, x + 1, x, x), (y, y, y - 1, y + 1)))):
                 if 0 <= nx < 1e6 and  0 <= ny < 1e6 and (nx, ny) not in blocked and (nx, ny) not in seen:
                     seen.add((nx, ny))
                     frontier.append((nx, ny))
@@ -70,7 +71,7 @@ def is_escape_possible_using_dfs_enhanced(blocked, source, target):
     
 if __name__ == '__main__':
     blocked, source, target = [[0, 1], [1, 0]], [0, 0], [0, 2]
-    print is_escape_possible_using_dfs_enhanced(blocked, source, target)
+    print(is_escape_possible_using_dfs_enhanced(blocked, source, target))
     
     blocked, source, target = [], [0, 0], [999999, 999999]
-    print is_escape_possible_using_dfs_enhanced(blocked, source, target)
+    print(is_escape_possible_using_dfs_enhanced(blocked, source, target))

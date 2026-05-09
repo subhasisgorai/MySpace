@@ -1,5 +1,6 @@
 
 
+from __future__ import print_function
 def is_match(text, pattern):
     registry = dict()
 
@@ -21,4 +22,4 @@ def is_match(text, pattern):
 
 
 if __name__ == '__main__':
-    print is_match('aab', 'c*a*b')
+    print(is_match('aab', 'c*a*b'))

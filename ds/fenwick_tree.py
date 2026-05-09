@@ -9,6 +9,7 @@
 '''
 
 
+from __future__ import print_function
 class FenwickTree:
 
     def __init__(self, vector):
@@ -44,11 +45,11 @@ class FenwickTree:
 if __name__ == '__main__':
     input_arr = [1, 4, 2, 4, 3, 0, 7, 5, 1, 6]
 #   input_arr = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    print 'Input array: {}'.format(input_arr)
+    print('Input array: {}'.format(input_arr))
     
     ft = FenwickTree(input_arr)
     ft.form_tree()
-    print 'Fenwick Tree formed: {}'.format(ft)
+    print('Fenwick Tree formed: {}'.format(ft))
     
-    print 'Sum for range [2, 5]: {}'.format(ft.query(2, 5))
+    print('Sum for range [2, 5]: {}'.format(ft.query(2, 5)))
     

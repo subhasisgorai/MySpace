@@ -1,5 +1,6 @@
 
 
+from __future__ import print_function
 results = list()
 
 
@@ -25,10 +26,10 @@ def can_building_view_sunset(building_heights, building_idx):
 
 if __name__ == '__main__':
     building_heights = [5, 4, 3, 2, 1]
-    print 'can view sunset from {}th building: {}'.format(2,
-                                    can_building_view_sunset(building_heights, 2)) 
-    print 'can view sunset from {}th building: {}'.format(0,
-                                    can_building_view_sunset(building_heights, 0))
+    print('can view sunset from {}th building: {}'.format(2,
+                                    can_building_view_sunset(building_heights, 2))) 
+    print('can view sunset from {}th building: {}'.format(0,
+                                    can_building_view_sunset(building_heights, 0)))
     
     del results[:]
     
@@ -36,4 +37,4 @@ if __name__ == '__main__':
     can_see_sunset = [i for i in range(len(building_heights)) 
                             if can_building_view_sunset(building_heights, i)]
     
-    print 'Sunset view from these building {}'.format(can_see_sunset)
+    print('Sunset view from these building {}'.format(can_see_sunset))

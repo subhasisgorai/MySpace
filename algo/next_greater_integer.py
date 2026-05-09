@@ -1,12 +1,14 @@
+from __future__ import print_function
+from functools import reduce
 
 
 def next_greater_element(n):
 
     def get_digits_array(num):
-        return map(int, str(num))
+        return list(map(int, str(num)))
     
     def get_number_from_digits(digits_arr):
-        digits_arr = map(str, digits_arr)
+        digits_arr = list(map(str, digits_arr))
         return int(reduce(lambda a, b: a + b, digits_arr))
 
     if n > 0:
@@ -34,6 +36,6 @@ if __name__ == '__main__':
     # print next_greater_element(0)
     # print next_greater_element(2147483476)
     # print next_greater_element(12222333)
-    print next_greater_element(12443322)
+    print(next_greater_element(12443322))
 
 

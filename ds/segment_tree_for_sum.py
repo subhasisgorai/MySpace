@@ -1,5 +1,6 @@
 
 
+from __future__ import print_function
 class TreeNode:
 
     def __init__(self, low, high, range_sum):
@@ -59,8 +60,8 @@ class SegmentTree:
             
 if __name__ == '__main__':
     arr = [5, 3, 8, 1, 5, 7, 4, 0, 9, 2, 6]
-    print 'The given vector: {}\n'.format(arr)
+    print('The given vector: {}\n'.format(arr))
     st = SegmentTree(arr)
-    print 'In range ({}, {}), the summation value: {}'.format(2, 5, st.get_sum_range(2, 5))
+    print('In range ({}, {}), the summation value: {}'.format(2, 5, st.get_sum_range(2, 5)))
     st.update_node(4, 8)
-    print 'In range ({}, {}), the summation value: {}'.format(2, 5, st.get_sum_range(2, 5))
+    print('In range ({}, {}), the summation value: {}'.format(2, 5, st.get_sum_range(2, 5)))

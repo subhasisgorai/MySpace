@@ -1,5 +1,6 @@
 
 
+from __future__ import print_function
 def reverse(sequence, start, stop):
     if start < stop:
         sequence[start], sequence[stop] = sequence[stop], sequence[start]
@@ -9,4 +10,4 @@ def reverse(sequence, start, stop):
 sequence = [1, 2, 3, 4, 5, 6, 7]
 reverse(sequence, 0, len(sequence) - 1)
 
-print sequence
+print(sequence)

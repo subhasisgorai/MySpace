@@ -1,3 +1,4 @@
+from __future__ import print_function
 class PriorityQueueBase:
 
     class _Item:
@@ -86,26 +87,26 @@ class HeapPriorityQueue(PriorityQueueBase):
 
 if __name__ == '__main__':
     heap = HeapPriorityQueue()
-    print 'adding (5, 4) to heap' 
+    print('adding (5, 4) to heap') 
     heap.add(5, 4)
     
-    print 'adding (10, 7) to heap'
+    print('adding (10, 7) to heap')
     heap.add(10, 7)
     
-    print 'adding (11, 3) to heap'
+    print('adding (11, 3) to heap')
     heap.add(11, 3)
     
     a_tuple = (3, 3)
-    print 'adding {} to heap'.format(a_tuple)
+    print('adding {} to heap'.format(a_tuple))
     heap.add(*a_tuple)
     
-    print 'adding (19, 23) to heap'
+    print('adding (19, 23) to heap')
     heap.add(19, 23)
     
-    print 'adding (25, 11) to heap'
+    print('adding (25, 11) to heap')
     heap.add(25, 11)
     
-    print 'now removing the items added'
+    print('now removing the items added')
     for item in heap.items():
-        print item,
+        print(item, end=' ')
     

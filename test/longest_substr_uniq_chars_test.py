@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import unittest
 from ps import longest_substring_with_unique_chars
 

@@ -5,6 +5,7 @@
 '''
 
 
+from __future__ import print_function
 def largest_rectangle_area(heights):
     stack, ans = list(), 0
     heights.append(0)
@@ -22,4 +23,4 @@ def largest_rectangle_area(heights):
 
 if __name__ == '__main__':
     heights = [1, 0, 2, 1, 1, 1, 2]
-    print largest_rectangle_area(heights)
+    print(largest_rectangle_area(heights))

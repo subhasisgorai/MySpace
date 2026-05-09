@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from itertools import islice
 import heapq
 
@@ -28,6 +30,6 @@ def str_len_comparator(str_1, str_2):
 str_stream = sample_sentence.split()
 str_stream.sort(cmp=str_len_comparator, reverse=True)
 for i in str_stream:
-    print i
+    print(i)
 
-print top_k(9, iter(str_stream))
+print(top_k(9, iter(str_stream)))

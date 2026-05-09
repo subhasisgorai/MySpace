@@ -1,6 +1,6 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from pprint import pprint
-
-
 def find_longest_common_subsequence(text1, text2):
     if text1 and text2:
         result = [[0] * len(text2) for _ in range(len(text1))]
@@ -15,8 +15,8 @@ def find_longest_common_subsequence(text1, text2):
 
 
 if __name__ == '__main__':
-    print find_longest_common_subsequence('fish', 'fosh')
-    print find_longest_common_subsequence('fort', 'fosh')
-    print find_longest_common_subsequence('microsoft', 'cross')
-    print find_longest_common_subsequence('fifo', 'fosh')
-    print find_longest_common_subsequence('ufo', 'surround')
+    print(find_longest_common_subsequence('fish', 'fosh'))
+    print(find_longest_common_subsequence('fort', 'fosh'))
+    print(find_longest_common_subsequence('microsoft', 'cross'))
+    print(find_longest_common_subsequence('fifo', 'fosh'))
+    print(find_longest_common_subsequence('ufo', 'surround'))

@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 def alienOrder(words):
         from collections import defaultdict, Counter
         indegree = Counter()
@@ -30,7 +32,7 @@ def alienOrder(words):
 if __name__ == '__main__':
 
     def print_result(sample):
-        print 'Output for {}:[{}]'.format(sample, alienOrder(sample))
+        print('Output for {}:[{}]'.format(sample, alienOrder(sample)))
     
     print_result(["wrt", "wrf", "er", "ett", "rftt"])
     print_result(["z", "x"])

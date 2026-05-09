@@ -1,3 +1,4 @@
+from functools import reduce
 
 
 def convert(s, num_rows):

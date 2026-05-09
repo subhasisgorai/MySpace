@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from functools import reduce
 
 
@@ -16,15 +18,15 @@ def cyclic_shift_hash(s):
 
 
 if __name__ == '__main__':
-    print string_hash('Subhasis')
-    print string_hash('subhasis')
-    print string_hash('Suhbassi')
-    print string_hash('abc')
-    print string_hash('cba')
+    print(string_hash('Subhasis'))
+    print(string_hash('subhasis'))
+    print(string_hash('Suhbassi'))
+    print(string_hash('abc'))
+    print(string_hash('cba'))
     
-    print cyclic_shift_hash('Subhasis')
-    print cyclic_shift_hash('subhasis')
-    print cyclic_shift_hash('Suhbassi')
-    print cyclic_shift_hash('abc')
-    print cyclic_shift_hash('cba')
+    print(cyclic_shift_hash('Subhasis'))
+    print(cyclic_shift_hash('subhasis'))
+    print(cyclic_shift_hash('Suhbassi'))
+    print(cyclic_shift_hash('abc'))
+    print(cyclic_shift_hash('cba'))
 

@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 import heapq
 
 class Partition:
@@ -84,4 +86,4 @@ class Solution:
     
 if __name__ == '__main__':
     soln = Solution()
-    print(soln.minimumCost(3, [[1,2,5],[1,3,6],[2,3,1]]))
+    print((soln.minimumCost(3, [[1,2,5],[1,3,6],[2,3,1]])))

@@ -1,3 +1,4 @@
+from __future__ import print_function
 def power(x, y):
     result = 1.0
     count = 0
@@ -6,7 +7,7 @@ def power(x, y):
         y -= 1
         count += 1
         
-    print count
+    print(count)
     return result
 
 
@@ -20,12 +21,12 @@ def power_improved(x, y):
             result *= x
         x, power, count = x * x, power >> 1, count + 1  
          
-    print count
+    print(count)
     return result
 
 
 if __name__ == '__main__':
-    print power(12, 100)
-    print power_improved(12, 100)
-    print power(1.1, 20)
-    print power_improved(1.1, 20)
+    print(power(12, 100))
+    print(power_improved(12, 100))
+    print(power(1.1, 20))
+    print(power_improved(1.1, 20))

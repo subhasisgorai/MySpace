@@ -1,3 +1,5 @@
+from __future__ import print_function
+from functools import reduce
 
 def find_nearest_Palindrome(n):
     def assertValidInteger(sample):
@@ -9,7 +11,7 @@ def find_nearest_Palindrome(n):
     
     # some useful inner functions
     def convert_num_to_array(number):
-        return map(int, number)
+        return list(map(int, number))
     
     def check_all_digits_nine(num_arr):
         return all(i == 9 for i in num_arr)
@@ -21,7 +23,7 @@ def find_nearest_Palindrome(n):
         return array[::-1]
     
     def get_back_the_number(left_arr, mid_arr, right_arr):
-        resultant_array = map(str, left_arr + mid_arr + right_arr)
+        resultant_array = list(map(str, left_arr + mid_arr + right_arr))
         return int(reduce(lambda a, b: a + b, resultant_array))
     
     def is_even(number):
@@ -51,7 +53,7 @@ def find_nearest_Palindrome(n):
         initial_palindrome, left_arr, mid_arr, right_arr = get_initial_palindrome(num_arr)
         
         if initial_palindrome >= int(n):
-            mid_arr = list(map(lambda i: i - 1 if i > 0 else 9, mid_arr))
+            mid_arr = list([i - 1 if i > 0 else 9 for i in mid_arr])
             if mid_arr[0] == 9:
                 curr_pos, carry = len(left_arr) - 1, 1
                 while curr_pos >= 0 and carry > 0:
@@ -68,7 +70,7 @@ def find_nearest_Palindrome(n):
         initial_palindrome, left_arr, mid_arr, right_arr = get_initial_palindrome(num_arr)
 
         if initial_palindrome <= int(n):
-            mid_arr = list(map(lambda i: i + 1 if i < 9 else 0, mid_arr))
+            mid_arr = list([i + 1 if i < 9 else 0 for i in mid_arr])
             if mid_arr[0] == 0:
                 curr_pos, carry = len(left_arr) - 1, 1
                 while curr_pos >= 0 and carry > 0: 
@@ -102,6 +104,6 @@ def find_nearest_Palindrome(n):
                     else prev_palindrome)
 
 if __name__ == '__main__':
-    print find_nearest_Palindrome('123')
-    print find_nearest_Palindrome('1')
-    print find_nearest_Palindrome('10')
+    print(find_nearest_Palindrome('123'))
+    print(find_nearest_Palindrome('1'))
+    print(find_nearest_Palindrome('10'))

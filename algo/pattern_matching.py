@@ -1,6 +1,6 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from timeit import repeat
-
-
 # The worst-case running time of the brute-force method is O(nm)
 def brute_force(text, pattern):
     if text and pattern:
@@ -70,16 +70,16 @@ def rabin_karp(text, pattern):
 
 
 if __name__ == '__main__':
-    print brute_force('Hello World', 'lo Wo')
-    print brute_force('Hello World', 'lo wo')
+    print(brute_force('Hello World', 'lo Wo'))
+    print(brute_force('Hello World', 'lo wo'))
     
-    print boyer_moore('Hello World', 'lo Wo')
-    print boyer_moore('Hello World', 'lo wo')
+    print(boyer_moore('Hello World', 'lo Wo'))
+    print(boyer_moore('Hello World', 'lo wo'))
     
-    print rabin_karp('Hello World', 'lo Wo')
-    print rabin_karp('Hello World', 'lo wo')
+    print(rabin_karp('Hello World', 'lo Wo'))
+    print(rabin_karp('Hello World', 'lo wo'))
     
     
-    print repeat('brute_force(\'Hello World\', \'lo Wo\')', 'from algo.pattern_matching import brute_force', repeat=3)
-    print repeat('boyer_moore(\'Hello World\', \'lo Wo\')', 'from algo.pattern_matching import boyer_moore', repeat=3)
-    print repeat('rabin_karp(\'Hello World\', \'lo Wo\')', 'from algo.pattern_matching import rabin_karp', repeat=3)                
+    print(repeat('brute_force(\'Hello World\', \'lo Wo\')', 'from algo.pattern_matching import brute_force', repeat=3))
+    print(repeat('boyer_moore(\'Hello World\', \'lo Wo\')', 'from algo.pattern_matching import boyer_moore', repeat=3))
+    print(repeat('rabin_karp(\'Hello World\', \'lo Wo\')', 'from algo.pattern_matching import rabin_karp', repeat=3))                

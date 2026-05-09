@@ -1,5 +1,6 @@
 
 
+from __future__ import print_function
 def find_brute_force(text, pattern):
     n, m = len(text), len(pattern)
     for i in range(n - m + 1):
@@ -14,4 +15,4 @@ def find_brute_force(text, pattern):
 text = 'subhasis'
 pattern = 'ubhas'
 
-print find_brute_force(text, pattern)
+print(find_brute_force(text, pattern))

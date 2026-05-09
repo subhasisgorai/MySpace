@@ -1,3 +1,4 @@
+from __future__ import print_function
 def intersect_sorted_arrays(arr_1, arr_2):
     result = list()
     if arr_1 and arr_2:
@@ -17,4 +18,4 @@ def intersect_sorted_arrays(arr_1, arr_2):
 if __name__ == '__main__':
     arr_1 = [1, 2, 2, 3, 3, 3, 3, 7, 7, 8, 9]
     arr_2 = [0, 2, 3, 3, 3, 5, 6, 7, 8, 9, 15]
-    print intersect_sorted_arrays(arr_1, arr_2)
+    print(intersect_sorted_arrays(arr_1, arr_2))

@@ -1,6 +1,6 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import defaultdict
-
-
 class Graph:
 
     def __init__(self, vertices_count):
@@ -39,7 +39,7 @@ class Graph:
                 for v in self.graph[u]:
                     if not visited[v]:
                         stack.append(v)
-        print 'non-recursive DFS result: {}'.format(result)
+        print('non-recursive DFS result: {}'.format(result))
         
     def topological_sort(self):
         visited = [False] * self.vertices_count
@@ -47,13 +47,13 @@ class Graph:
         for i in range(self.vertices_count):
             if visited[i] == False:
                 self.__topological_sort_util(i, visited, stack)
-        print 'Topological Sort order: {}'.format(stack)
+        print('Topological Sort order: {}'.format(stack))
     
     def dfs(self, u):
         result = []
         visited = [False] * self.vertices_count
         self.__simple_dfs(u, visited, result)
-        print 'recursive DFS result: {}'.format(result)
+        print('recursive DFS result: {}'.format(result))
         
     def bfs(self, u):
         queue = list()
@@ -72,7 +72,7 @@ class Graph:
                         queue.append(v)
                         visited[v] = True
                             
-        print 'BFS result: {}'.format(result)
+        print('BFS result: {}'.format(result))
 
         
 if __name__ == '__main__':

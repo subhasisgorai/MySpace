@@ -1,6 +1,6 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from decimal import Decimal
-
-
 class Item:
 
     def __init__(self, weight, value):
@@ -33,7 +33,7 @@ def knapsack_with_repetition(items, max_weight_allowed):
     if items and len(items) > 0 and max_weight_allowed > 0:
         optimal_values = [0] * (max_weight_allowed + 1)
         for temp_max_weight_allowed in range(1, max_weight_allowed + 1):
-            items_eligible = filter(lambda item: item.weight <= temp_max_weight_allowed, items)
+            items_eligible = [item for item in items if item.weight <= temp_max_weight_allowed]
             if items_eligible:
                 optimal_values[temp_max_weight_allowed] = max([optimal_values[temp_max_weight_allowed - item.weight] + item.value for item in items_eligible])
         return optimal_values[max_weight_allowed]
@@ -65,6 +65,6 @@ def __reorganize_items(items):
 if __name__ == '__main__':
     items = [Item(10, 60), Item(40, 40), Item(20, 100), Item(30, 120)]
     
-    print fractional_knapsack_greedy(items, 50)    
-    print knapsack_with_repetition(items, 50)
-    print knapsack_without_repetition(items, 50)
+    print(fractional_knapsack_greedy(items, 50))    
+    print(knapsack_with_repetition(items, 50))
+    print(knapsack_without_repetition(items, 50))

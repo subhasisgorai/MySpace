@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import unittest
 from algo.tournament_can_a_beat_b import MatchResult
 from algo.tournament_can_a_beat_b import can_team_a_beat_team_b 

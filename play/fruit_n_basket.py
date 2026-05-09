@@ -1,3 +1,4 @@
+from __future__ import print_function
 def total_fruit(tree):
     i = j = -1
     counter = result = 0
@@ -22,4 +23,4 @@ def total_fruit(tree):
 
 if __name__ == '__main__':
     tree = [1,2,1]
-    print total_fruit(tree)
+    print(total_fruit(tree))

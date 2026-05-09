@@ -1,4 +1,7 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import defaultdict
+from functools import reduce
 
 
 def alienOrder(words):
@@ -42,7 +45,7 @@ def alienOrder(words):
         graph = defaultdict(set)
         in_order = defaultdict(int)
         
-        vertices = reduce(lambda s1, s2: s1.union(s2), map(set, filter(lambda word: word, words)), set())
+        vertices = reduce(lambda s1, s2: s1.union(s2), list(map(set, [word for word in words if word])), set())
         try:
             extract_relations(graph)
             result = ''.join(topological_ordering(in_order))
@@ -57,7 +60,7 @@ def alienOrder(words):
 if __name__ == '__main__':
 
     def print_result(sample):
-        print 'Output for {}:[{}]'.format(sample, alienOrder(sample))
+        print('Output for {}:[{}]'.format(sample, alienOrder(sample)))
     
     print_result(["wrt", "wrf", "er", "ett", "rftt"])
     print_result(["z", "x"])

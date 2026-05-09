@@ -1,3 +1,4 @@
+from __future__ import print_function
 class PriorityQueueBase(object):
 
     class _Item(object):
@@ -86,10 +87,10 @@ if __name__ == '__main__':
     heappq.add(3, 'test_3') 
     heappq.add(2, 'test_2')
     
-    print heappq.remove_min()
+    print(heappq.remove_min())
     
     heappq.add(1, 'test_1')
     heappq.add(8, 'test_8')
     heappq.add(4, 'test_4')
     
-    print heappq.min()
+    print(heappq.min())

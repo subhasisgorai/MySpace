@@ -1,4 +1,5 @@
 
+from __future__ import print_function
 def reverse_words(s):
     def reverse_range(start, end):
         while start < end:
@@ -29,6 +30,6 @@ def reverse_words(s):
     return ''.join(new_sentence)
         
 if __name__  == '__main__':
-    print reverse_words('      Hello       World  ')
-    print reverse_words('')
+    print(reverse_words('      Hello       World  '))
+    print(reverse_words(''))
     

@@ -1,6 +1,6 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from random import randint
-
-
 def quick_select_kth_min(arr, k):
     data_len = len(arr) if arr else 0
     assert k in range(1, data_len + 1), "k is not valid for the given data"
@@ -39,5 +39,5 @@ def quick_select_kth_max(arr, k):
 
 
 if __name__ == '__main__':
-    print quick_select_kth_min([1, 3, 2, 4, 9, 6, 7, 8, 5, 0], 5)
-    print quick_select_kth_max([1, 3, 2, 4, 9, 6, 7, 8, 5, 0], 3)
+    print(quick_select_kth_min([1, 3, 2, 4, 9, 6, 7, 8, 5, 0], 5))
+    print(quick_select_kth_max([1, 3, 2, 4, 9, 6, 7, 8, 5, 0], 3))

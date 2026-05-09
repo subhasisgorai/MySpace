@@ -1,5 +1,3 @@
-
-
 def restore_ip_addresses(s):
 
     def is_valid_ip_part(part):

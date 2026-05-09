@@ -1,8 +1,8 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from copy import deepcopy
 
 from ds.graph import Graph
-
-
 def floyd_warshall(g):
     closure = deepcopy(g)
     vertices = list(closure.vertices())
@@ -36,5 +36,5 @@ g.insert_edge(d, f)
 g.insert_edge(e, f)
 
 closure = floyd_warshall(g)
-print closure.get_edge(a, f) 
+print(closure.get_edge(a, f)) 
  

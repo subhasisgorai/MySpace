@@ -1,5 +1,6 @@
+from __future__ import absolute_import
 import unittest
-import rough_book
+from . import rough_book
 
 
 class Tester(unittest.TestCase):

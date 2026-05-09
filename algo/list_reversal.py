@@ -1,3 +1,4 @@
+from __future__ import print_function
 class ListNode:
 
     def __init__(self, data=0, nxt=None):
@@ -59,10 +60,10 @@ class LinkedList:
     def print_list(self):
         iter_node = self.head
         while iter_node:
-            print iter_node.data,
+            print(iter_node.data, end=' ')
             iter_node = iter_node.nxt
-            print '->' if iter_node else '',
-        print ''
+            print('->' if iter_node else '', end=' ')
+        print('')
 
     def print_list_reverse(self):
         stack = list()
@@ -72,9 +73,9 @@ class LinkedList:
             iter_node = iter_node.nxt
         
         while len(stack):
-            print stack.pop(),
+            print(stack.pop(), end=' ')
             
-        print ''
+        print('')
     
     def print_list_reversed_recursive(self):
         self.__print_list_reversed_recursive(self.head) 
@@ -82,7 +83,7 @@ class LinkedList:
     def __print_list_reversed_recursive(self, node):
         if node:
             self.__print_list_reversed_recursive(node.nxt)
-            print node.data,
+            print(node.data, end=' ')
         return
 
 

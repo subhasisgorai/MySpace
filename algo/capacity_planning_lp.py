@@ -38,10 +38,12 @@ two different types of robots:
         
 '''
 
+from __future__ import absolute_import
+from __future__ import print_function
 import pulp
 
 solver_list = pulp.listSolvers(onlyAvailable=True)
-print solver_list
+print(solver_list)
 
 # let's instantiate our problem class
 model = pulp.LpProblem('Profit maximizing problem', pulp.LpMaximize)

@@ -1,13 +1,13 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import defaultdict
-from itertools import izip_longest
-
-
+from itertools import zip_longest
 def alienOrder(words):
 
     def find_relation(word_1, word_2, vertices):
         if word_1 and word_2:
             relation = None
-            for c1, c2 in izip_longest(word_1, word_2):
+            for c1, c2 in zip_longest(word_1, word_2):
                 if c1:
                     vertices.add(c1)
                 if c2:
@@ -81,14 +81,14 @@ def alienOrder(words):
             try:
                 lexicographic_order = ''.join(topological_sort())
             except:
-                print 'cycle detected',
+                print('cycle detected', end=' ')
     return lexicographic_order
 
 
 if __name__ == '__main__':
 
     def print_result(sample):
-        print 'Output for {}:[{}]'.format(sample, alienOrder(sample))
+        print('Output for {}:[{}]'.format(sample, alienOrder(sample)))
     
     print_result(["wrt", "wrf", "er", "ett", "rftt"])
     print_result(["z", "x"])

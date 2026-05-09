@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import unittest
 from play.equality_checker import check_equality
 
@@ -14,11 +15,11 @@ class TestEqualityChecker(unittest.TestCase):
         self.assertFalse(check_equality(['a=b', 'b=c', 'c=d', 'd=e', 'b=z', 'x=y'], 'a', 'x'))
         
     def test_returns_none_for_empty_samples(self):
-        self.assert_(check_equality(None, 'a', 'x') is None)
+        self.assertTrue(check_equality(None, 'a', 'x') is None)
     
     def test_return_none_for_none_params(self):
-        self.assert_(check_equality(['a=b'], None, 'x') is None)
-        self.assert_(check_equality(['a=b'], 'a', None) is None)
+        self.assertTrue(check_equality(['a=b'], None, 'x') is None)
+        self.assertTrue(check_equality(['a=b'], 'a', None) is None)
 
 
 if __name__ == '__main__':

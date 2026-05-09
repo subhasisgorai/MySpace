@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from ds.adaptable_q import AdaptableHeapPriorityQueue
 from ds.graph import Graph
 
@@ -49,7 +51,7 @@ if __name__ == '__main__':
     g.insert_edge(e, f, 1)
     
     result_cloud = shortest_path_lengths(g, a)
-    print result_cloud
+    print(result_cloud)
     
     g = Graph(directed=True)
     
@@ -60,4 +62,4 @@ if __name__ == '__main__':
     g.insert_edge(b, a, 2)
     
     result_cloud = shortest_path_lengths(g, a)
-    print result_cloud
+    print(result_cloud)

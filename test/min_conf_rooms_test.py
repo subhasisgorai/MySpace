@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import unittest
 
 from algo.min_conf_rooms import min_meeting_rooms_needed

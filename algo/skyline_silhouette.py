@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 from sortedcontainers import SortedSet
 from collections import namedtuple
 

@@ -1,5 +1,6 @@
 
 
+from __future__ import print_function
 def find_longest_chars_with_distinct_chars(input_str):
     left_boundary = right_boundary = result = 0
     char_mapping = [-1] * 128
@@ -17,4 +18,4 @@ def find_longest_chars_with_distinct_chars(input_str):
 
 
 if __name__ == '__main__':
-    print find_longest_chars_with_distinct_chars('subhasis')
+    print(find_longest_chars_with_distinct_chars('subhasis'))

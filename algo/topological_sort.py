@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from algo.graph import Graph
 
 
@@ -36,4 +38,4 @@ g.insert_edge(d, e)
 g.insert_edge(e, f)
 
 topo_order = topological_sort(g)
-print topo_order
+print(topo_order)

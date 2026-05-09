@@ -1,55 +1,57 @@
 ''' Harnessing Python: An overly simplified introduction to Python '''
 
-''' For this course we would be using python 2.7 '''
-''' Please note python 3 has been completely rewritten 
-    and different from that of python 2 '''
+''' This material was originally written for Python 2.7; the repo is migrated to Python 3. '''
+''' Notes on differences from legacy Python 2 are kept where useful. '''
 
 ''' @author: subhasis '''
 
 ''' Some demo on python print '''
 ''' all three results in same output '''
 
-print 'Hello World'
-print 'Hello', 'World'
-print 'Hello',
-print 'world'
+from functools import reduce
+
+print('Hello World')
+print('Hello', 'World')
+print('Hello', end=' ')
+print('world')
 
 ''' some formatting '''
-print 'My Name is %s, and age is %d' % ('Subhasis', 31)
+print('My Name is %s, and age is %d' % ('Subhasis', 31))
+
 
 ''' same effect '''
-print "My name is {}, and age is {}".format('Subhasis', 31)
+print("My name is {}, and age is {}".format('Subhasis', 31))
 
 ''' can be indexed as well, but optional from python 2.7 '''
-print "My name is {0}, and age is {2}".format('Subhasis', 31, 30)
+print("My name is {0}, and age is {2}".format('Subhasis', 31, 30))
 
 ''' little bit of formatting '''
-print "My name is {:15}, and age is {:10}".format('Subhasis', 31)
+print("My name is {:15}, and age is {:10}".format('Subhasis', 31))
 
 ''' Now name is center-justified, age left-justified '''
-print "My name is {:^15}, and age is {:<10} years".format('Subhasis', 31)   
+print("My name is {:^15}, and age is {:<10} years".format('Subhasis', 31))   
 
 ''' then how to do right justification? '''
-print '{:>10}, {}'.format('Hello', 'World')
+print('{:>10}, {}'.format('Hello', 'World'))
 
 ''' if we multiply 5 by 10, answer would be 50, what would happen if string is multiplied? Error??'''
-print 'Subhasis ' * 5
+print('Subhasis ' * 5)
 
 ''' string center example '''
 city = 'Bangalore'
-print city.center(40)
+print(city.center(40))
 
 ''' now with filler character '''
-print city.center(40, '-')
+print(city.center(40, '-'))
 
 ''' cool, right, let's move on to input '''
 ''' taking user input via input function '''
-age = input('What\'s your present age: ')
-print age
+age = eval(input('What\'s your present age: '))
+print(age)
 
 ''' what about raw_input '''
-age = raw_input('What\'s is your present age: ')
-print age
+age = input('What\'s is your present age: ')
+print(age)
 
 ''' no difference right? let's see further ''' 
 
@@ -66,19 +68,19 @@ import timeit
 import types
 
 
-radius = input('Enter radius of the circle: ')
-print 'Area would be {}'.format(pi * radius ** 2)
+radius = eval(input('Enter radius of the circle: '))
+print('Area would be {}'.format(pi * radius ** 2))
 
 ''' perfect now let's try the same with raw_input '''
-radius_raw = raw_input('Enter radius of the circle: ')
+radius_raw = input('Enter radius of the circle: ')
 # print 'Area would be {}'.format(pi * radius_raw ** 2)
 ''' above expression results in an error since python 2 raw_input always returns string '''
 radius = float(radius_raw)
 result = "radius: {}\narea: {:.3f}".format(radius, pi * radius ** 2)
-print result.upper()
+print(result.upper())
 
-test = input("Enter what you like: ")  # let's enter 5 + 2
-print test
+test = eval(input("Enter what you like: "))  # let's enter 5 + 2
+print(test)
 
 ''' Did you notice the output? input() additionally tries to eval() the input as python expression '''
 
@@ -86,8 +88,8 @@ print test
     1) multiple python command in same line should be separated by ';'
     2) single python command in multiple lines, should be connected by '\'
 '''
-print 'India'.center \
-    (40, 'x')
+print('India'.center \
+    (40, 'x'))
 
 
 ''' Now we will see python datatypes, we will discuss common types we use in our day to day purpose
@@ -112,19 +114,19 @@ print 'India'.center \
     
 '''
 my_string = 'Hello World' 
-print type(my_string)  # should print out <type 'str'>
+print(type(my_string))  # should print out <type 'str'>
 my_unicode = u'Hi \u2119\u01b4\u2602\u210c\xf8\u1f24'  # has unicode code points represented by \u followed by 4 digit hex string, 
                                                     # for more than 4 digit hex string you should use \U                                                    
-print type(my_unicode)  # this should print out <type 'unicode'>
-print len(my_unicode)  # should print out '9', there 9 unicode code points 
+print(type(my_unicode))  # this should print out <type 'unicode'>
+print(len(my_unicode))  # should print out '9', there 9 unicode code points 
 
 ''' so remember there are bytes, there are code points, you should know what you are dealing with and keep them straight.
     Now there are two methods, .encode() & .decode() - encode converts unicode code points to bytes and decode does the vice-versa. 
 '''
 
 my_utf8 = my_unicode.encode('utf-8')
-print len(my_utf8)  # has length of 19 bytes represented by \x hexadecimal string
-print my_utf8
+print(len(my_utf8))  # has length of 19 bytes represented by \x hexadecimal string
+print(my_utf8)
 
 # >>> my_unicode.encode('ascii')
 # Traceback (most recent call last):
@@ -136,9 +138,9 @@ print my_utf8
     If we are mixing unicode and byte string together, python tries to decode the byte string using sys default encoding
 '''
 mixed = u'Hello' + 'World'
-print mixed  # print HelloWorld which is equivalent to u'Hello' + ('World'.decode('ascii')), where ascii is default encoding
+print(mixed)  # print HelloWorld which is equivalent to u'Hello' + ('World'.decode('ascii')), where ascii is default encoding
 
-print sys.getdefaultencoding()  # in case you don't know what's the system default encoding
+print(sys.getdefaultencoding())  # in case you don't know what's the system default encoding
 
 ''' There exists other string literals, like
     1. Raw String literal - When an 'r' or 'R' prefix is present, a character following a backslash is included in the string without 
@@ -154,12 +156,12 @@ print sys.getdefaultencoding()  # in case you don't know what's the system defau
     Raw string literal (prefixed by r) gets automatically encoded with 'string-escape', let's see an example.
 '''
 raw_str = r'Hello\nWorld'
-print raw_str  # probably this is not the output you were expecting .. right? Now let's try to print it again
-print raw_str.decode('string-escape')  # yay, now looks good, so what exactly had happened?
+print(raw_str)  # probably this is not the output you were expecting .. right? Now let's try to print it again
+print(raw_str.decode('string-escape'))  # yay, now looks good, so what exactly had happened?
 
 normal_str = 'Hello\nWorld'
 en_str = normal_str.encode('string-escape')
-print raw_str == en_str  # probably this explains what exactly had happened
+print(raw_str == en_str)  # probably this explains what exactly had happened
 
 ''' Let's look at the sequence types of Python,
     1. strings, 2. unicode string this we have already discussed
@@ -173,17 +175,17 @@ print raw_str == en_str  # probably this explains what exactly had happened
 
 '''
 
-iterable = range(10)
-print iterable
-print iterable[:10:2]
+iterable = list(range(10))
+print(iterable)
+print(iterable[:10:2])
 test_list = iterable[::-1]
 for i in test_list:
-    print i,
-print '\n'
+    print(i, end=' ')
+print('\n')
 lists = [[]] * 3
-print lists  # basically it does a shallow copy now change the first item, it will have an effect on others
+print(lists)  # basically it does a shallow copy now change the first item, it will have an effect on others
 lists[0].append(5)
-print lists
+print(lists)
 
 ''' sort and sorted '''
 
@@ -198,10 +200,10 @@ lists = [[] for i in range(3)]
 lists[0].append(3)
 lists[1].append(4)
 lists[2].append(5)
-print lists 
+print(lists) 
 
 test_tuple = 1, 2, 3, 4, 5  # creates a tuple, optionally you may enclose this with parentheses
-print test_tuple
+print(test_tuple)
 
 test_dict = dict()
 test_dict[1] = 'one'
@@ -209,7 +211,7 @@ test_dict[2.0] = 'two'
 ''' Now we can use 1.0 to find out the value 'one', but it's not wise to use floating point numbers as key since computer stores 
     floating point numbers as approximation
 '''
-print test_dict[1.0]
+print(test_dict[1.0])
 
 a = dict(one=1, two=2, three=3)
 b = {'one': 1, 'two': 2, 'three': 3}
@@ -217,10 +219,10 @@ c = dict(zip(['one', 'two', 'three'], (1, 2, 3)))
 d = dict([('two', 2), ('one', 1), ('three', 3)])
 e = dict({'three': 3, 'one': 1, 'two': 2})
 
-print a == b == c == d == e
+print(a == b == c == d == e)
 
 for i in a.items():
-    print i
+    print(i)
 
 
 ''' Dictionary has a has_key(key) method to check for existence of a key. This should be checked before running an update.
@@ -232,7 +234,7 @@ for i in a.items():
 info = dict()  # same as {}
 info['name'] = 'Subhasis'  # updating the key
 info.setdefault('name', 'N/A')  # setting the default for key 'name'
-print info['name']  # trying to access the key 'name'
+print(info['name'])  # trying to access the key 'name'
 del info['name']  # deleting the key 'name' now
 
 # Now if we try to access key 'name' from the dict 'info' it will throw KeyError
@@ -242,7 +244,7 @@ del info['name']  # deleting the key 'name' now
 # KeyError: 'name'
 
 # But as mentioned earlier, we can gracefully handle this using get() by supplying a default value 
-print info.get('name', 'N/A')
+print(info.get('name', 'N/A'))
 
 ''' Other than this, there are boolean with True & False and also None type [None]
     Following are the Falsy types: None, False, Zero [0, 0L, 0.0, 0j], empty sequence i.e. [], (), '', empty mapping i.e. {}
@@ -254,19 +256,19 @@ print info.get('name', 'N/A')
     printing number with different base
 '''
 number = 15
-print bin(number)
-print hex(number)
-print oct(number)
+print(bin(number))
+print(hex(number))
+print(oct(number))
 
 ''' now let's try the reverse '''
-print int('1111', 2)
-print int('f', 16)
-print int('17', 8)
+print(int('1111', 2))
+print(int('f', 16))
+print(int('17', 8))
 
 ''' finding out ascii code of a english character '''
-print ord('A')
+print(ord('A'))
 # now reverse
-print chr(65)
+print(chr(65))
 
 ''' Now, briefly we will skim through the operators available with python. Nothing much changes here from that of the other
     conventional languages.
@@ -278,35 +280,35 @@ print chr(65)
     Now let's try few common bit manipulation techniques. 
 ''' 
 
-print 0b111 >> 1
-print 0b111 << 1
-print bin(0b0110 + 0b0110)  # this is as simple as multiplying by 2, which is nothing but left shift by 1
+print(0b111 >> 1)
+print(0b111 << 1)
+print(bin(0b0110 + 0b0110))  # this is as simple as multiplying by 2, which is nothing but left shift by 1
 
 test = 0b11101001
 # 'get' bit operation, say 4th bit
 i = 4
-print 0 if test & (1 << i) == 0 else 1
+print(0 if test & (1 << i) == 0 else 1)
 
 # 'set' bit operation
-print bin(test | (1 << i))
+print(bin(test | (1 << i)))
 
 # 'clear' bit operation
 i = 3
-print bin(test & ~(1 << i))
+print(bin(test & ~(1 << i)))
 
 # 'clear' all the bits from the most significant bit through i (inclusive)
 test = 0b11111111
 i = 4
 mask = (1 << i) - 1
-print bin(test & mask)
+print(bin(test & mask))
 
 # 'clear' all the bits from i through 0 (inclusive)
 mask = ~((1 << (i + 1)) - 1)
-print bin(test & mask)
+print(bin(test & mask))
 
 # update but operation [mix of clear bit followed by set bit]
 toBeUpdatedWith = 0
-print bin((~(1 << i) & test) | (toBeUpdatedWith << i))
+print(bin((~(1 << i) & test) | (toBeUpdatedWith << i)))
 
 ''' Preamble: Twos-Complement
     Few words about two's complement and how numbers are represented internally in a computer. Without this, our discussion on bitwise operations would be incomplete.
@@ -380,9 +382,9 @@ print bin((~(1 << i) & test) | (toBeUpdatedWith << i))
     Identity operator - is, is not 
 '''
 test = [1 , 2, 3, 4, 5]
-print 5 in test  # True
-print 10 not in test  # True 
-print cmp(5, 6)  # result -1
+print(5 in test)  # True
+print(10 not in test)  # True 
+print(cmp(5, 6))  # result -1
 
 # Now let's see usage of 'continue' and 'pass' keyword
 
@@ -390,13 +392,13 @@ for i in range(5):
     if i % 2 == 0:
         continue  # we could have used 'pass' also
     else:
-        print i 
+        print(i) 
 
 i = True
 if i is True:
     pass  # but we can't use continue here. you will get - SyntaxError: 'continue' not properly in loop
 else:
-    print 'Hello'
+    print('Hello')
 
 ''' So basically pass can serve as placeholder for any dummy code in Python
     There are usual if-else, for, while constructs like any other languages but there is no 'for (i=0; i<10; i++)' construct.
@@ -405,10 +407,10 @@ else:
 '''    
 i = 1
 while i <= 5:
-    print i
+    print(i)
     i += 1
 else:
-    print 'reached the limit'
+    print('reached the limit')
 # if 'break' encountered inside while loop, both the rest of the while loop and else block does not get executed
 
 name, age, location = 'Subhasis', 32, 'Bangalore, India'
@@ -418,23 +420,23 @@ name, age, location = 'Subhasis', 32, 'Bangalore, India'
 keys = ['name', 'age', 'location']
 values = ['Subhasis', 32, 'Bangalore, India']
 # zip supports parallel iteration, zipping keys, values will create a tuple
-tuples = zip(keys, values)
+tuples = list(zip(keys, values))
 # tuples, the variable, is a list of tuples, now we will create a dict out of it
 info = dict(tuples)
 # now how to get back the list of tuples again from the dict
-tuples_back = info.items()
+tuples_back = list(info.items())
 
 # before moving on to the next topic let's see how to form a set, which is unordered collection of hashable objects
 test_list = [1, 2, 3, 4, 5, 4, 2, 7, 9, 0, ]
 test_set = set(test_list)
-print test_set
+print(test_set)
 
 # now let's try to create a set out of a tuple.
 test_tuple = (1, 2, 2, 3, 4, 3, 3, 5, 5, 4, 1)
 test_set = set(test_tuple)
 # Are you expecting an error since tuple is unmodifiable? But it gets executed without any issue, because it creates a set out of the tuple rather try removing duplicates from tuple.
 # Two objects are different, even the following says that.
-print id(test_set) == id(test_tuple)
+print(id(test_set) == id(test_tuple))
 
 ''' We will look at List, Dictionary and Set comprehension. These are very important features supported in Python.
 '''
@@ -445,20 +447,20 @@ sample_list = [1, 2, 11, 7, 'Subhasis', 'a', '11', 14, 17]
 # The simplest solution would be
 result = []
 for item in sample_list:
-    if type(item) == types.IntType:
+    if type(item) == int:
         result.append(item ** 2)
-print 'Original list: {}, list after processing: {}'.format(sample_list, result)
+print('Original list: {}, list after processing: {}'.format(sample_list, result))
 
 # Too much of code for such a small thing, let's make it little simpler & crispy
 # let's try to filter based on type. More about lambda coming soon, as of now think them as a shorthand notation to declare pure functions. 
-filter(lambda item: type(item) == types.IntType, sample_list)
+[item for item in sample_list if type(item) == int]
 
 # Cool, now let's try find out the square of each of the items
 # We will be using map() which transforms every item in a sequence. Simple .. isn't it?
-map(lambda item: item ** 2, filter(lambda item: type(item) == types.IntType, sample_list))
+list(map(lambda item: item ** 2, [item for item in sample_list if type(item) == int]))
 
 # But I feel still this is lil complex, particularly in such cases list comprehension proves to be very handy.
-[item ** 2 for item in sample_list if type(item) == types.IntType]
+[item ** 2 for item in sample_list if type(item) == int]
 
 # List Comprehension provides us with an efficient way to iterate over individual list items and apply certain operation if the optional predicate expression is satisfied.
 # In the above example, we are iterating 'sample_list', individual items will be stored in 'item', calculating square on individual item is the operation & check for IntType is the optional predicate.
@@ -466,7 +468,7 @@ map(lambda item: item ** 2, filter(lambda item: type(item) == types.IntType, sam
 # Let's take one more problem, Given a list of Strings, change the items to upper case.
 sample_list = ['abc', 'def', 'test', 'cat', 'mat', 'python']
 result_list = [item.upper() for item in sample_list]
-print 'Original list: {}, list after processing: {}'.format(sample_list, result_list)
+print('Original list: {}, list after processing: {}'.format(sample_list, result_list))
 
 # Let's move on to dictionary & set comprehension, very similar to list comprehension, only difference is intermediate sequence would be of type dict & set respectively.
 # dictionary & set comprehension are comparatively new and were introduced in python 2.7. Let's see a few examples.
@@ -475,7 +477,7 @@ print 'Original list: {}, list after processing: {}'.format(sample_list, result_
 keys = ['name', 'age', 'location']
 values = ['Subhasis', 32, 'Bangalore, India']
 info = dict(zip(keys, values))
-print info
+print(info)
 # Output would be {'age': 32, 'name': 'Subhasis', 'location': 'Bangalore, India'}
 # We will try to simulate this using dictionary comprehension.
 
@@ -486,7 +488,7 @@ info = {key : value for (key, value) in zip(keys, values)}
 # We have seen how to create a Set. We can pass a list as set's constructor argument. i.e.
 names = ['Tom', 'Harry', 'John', 'Fred', 'Harry']
 names = set(names)
-print names
+print(names)
 # Output would be set(['Fred', 'Harry', 'John', 'Tom'])
 # We can also simulate the same thing in following way
 names = {'Tom', 'Harry', 'John', 'Fred', 'Harry'}  # use curly braces instead of square braces
@@ -502,11 +504,11 @@ for i in range(1, 6):
     for j in range(1, 6):
         if j % 2 == 0:  # if j is even
             result.append('{} x {} = {}'.format(i, j, i * j))
-print result
+print(result)
 
 # now using compound list comprehension
 result = ['{} x {} = {}'.format(i, j, i * j) for i in range(1, 6) for j in range(1, 6)  if j % 2 == 0 ]
-print result
+print(result)
 
 # So while writing compound comprehension, always remember: 
 # [transformation for outer-loop [optional predicate] for inner-loop [optional predicate]]
@@ -545,7 +547,7 @@ stripped_lines = [line.strip() for line in lines]
 print(stripped_lines)
 
 files = ['james.txt', 'abc.txt', 'julie.txt', 'mikey.txt', 'sarah.txt', 'xyz.txt']
-existing_files = filter(os.path.exists, files)  # 'os.path.exists' test whether the file exists, returns False for broken symbolic links
+existing_files = list(filter(os.path.exists, files))  # 'os.path.exists' test whether the file exists, returns False for broken symbolic links
 
 ''' Now if the function does not exist then we need to write it. One way to write is using lambda statement. lambda takes a number
     of parameter and an expression combining these parameters, and creates small function that returns the value of the expression 
@@ -555,7 +557,7 @@ lambda_even_finder([i for i in range(21)])
 # should output: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 
 lambda_adder = lambda x, y: x + y
-print(lambda_adder(5, 6))
+print((lambda_adder(5, 6)))
 
 # an alternative could be using the regular def statement to define a full fledged function
 def adder(x, y):
@@ -589,9 +591,9 @@ pp.pprint(sorted_student_marks_desc)
 '''
 test_list = [-2, -2.25, -0.000005, 5, 7, 5.25, 9, 10]
 
-intermediate_list = map(lambda x: pow(x, 2), test_list)
+intermediate_list = [pow(x, 2) for x in test_list]
 final_result = reduce(lambda x, y: x if x < y else y, intermediate_list)
-print final_result
+print(final_result)
 
 ''' A brief introduction to Regular Expression (regex)
     We all know Regular Expressions, in fact we all use regex in our day to day life.
@@ -602,21 +604,21 @@ print final_result
 match = re.search('ample', 'A sample sentence with sample words')  # re.search(pattern, text), match object stores the search result
 # matched? let's check whether match is None or not. If not null(None) then pattern was present in the text.
 if match:
-    print 'pattern \'{}\' present'.format(match.group())  # prints search result, matched string
-    print 'start index {}'.format(match.start())  # start index of first match
-    print 'end index {}'.format(match.end())  # end index exclusive
-    print 'start index & end index {}'.format(match.span())
-    print match.groups()  # tuple of groups, though not present in this example.
+    print('pattern \'{}\' present'.format(match.group()))  # prints search result, matched string
+    print('start index {}'.format(match.start()))  # start index of first match
+    print('end index {}'.format(match.end()))  # end index exclusive
+    print('start index & end index {}'.format(match.span()))
+    print(match.groups())  # tuple of groups, though not present in this example.
 else:
-    print 'match not found!'
+    print('match not found!')
     
 # Well let's try to put this in a function, such that we can invoke it again and again. That would be helpful in subsequent discussion.
 def find_match(pattern, text):
     match = re.search(pattern, text)
     if match:
-        print 'pattern \'{}\' present, at starting index {}'.format(match.group(), match.start())
+        print('pattern \'{}\' present, at starting index {}'.format(match.group(), match.start()))
     else:
-        print 'match not found'
+        print('match not found')
 # coool, now we are ready to explore further        
     
 ''' We briefly skim through meta-characters & basic patterns
@@ -687,12 +689,12 @@ groups = find_match_with_groups(r'([\w.-]+@[\w.-]+).+(\+\d{1,2}-\d{3}-\d{4}-\d{3
 test_str = 'cat on mat'
 pattern = re.compile(r'(\wat)')
 match = re.search(pattern, test_str)
-print type(match)  # <type '_sre.SRE_Match'>
-print 'First match [{}]'.format(match.group())  # First match [cat]
+print(type(match))  # <type '_sre.SRE_Match'>
+print('First match [{}]'.format(match.group()))  # First match [cat]
 
 matches = re.findall(pattern, test_str)
-print type(matches)  # <type 'list'>
-print matches  # ['cat', 'mat']
+print(type(matches))  # <type 'list'>
+print(matches)  # ['cat', 'mat']
 
 ''' We will try to measure the benefit of compiling pattern for a repetitive search, even if it could be miniscule. Let's see.
     We will be using timeit module for this empirical measurement. Before doing the experimentation let's have a quick review of the important timeit APIs.
@@ -738,24 +740,24 @@ pattern = re.compile(r'(\d+)')
 # Step 2: we can use regex sub to do the substitution, pretty easy .. isn't it? But how to refer to the matchstring while specifying the replacement? As I was telling, we can refer the first matched string by \1,
 #            second matched string by \2, and so on .. here we are interested in the first and only matched numeric Id.
 formatted_str = re.sub(pattern, r'[\1]', test_str)
-print formatted_str
+print(formatted_str)
 # Output: 'Id:[12345], Name: Subhasis'
 
 ''' One more stuff we keep on doing in our day to day life - in-place find/replace in a file. Assuming we have a file named 'sample.txt' in the current 
     directory. We will try to replace 'test' with 'TEST' in-place. [very similar to: sed -i 's/TEST/test/g' sample.txt]
 '''
 for line in fileinput.input('sample.txt', inplace=True):
-    print line.replace('test', 'TEST'),  # note the ',' at the end, this is to suppress unwanted newlines, try out without the ',' :-)
+    print(line.replace('test', 'TEST'), end=' ')  # note the ',' at the end, this is to suppress unwanted newlines, try out without the ',' :-)
 fileinput.close()
 
 ''' File Handling
 '''
 data = open('sample.txt')
-print data.readline()  # read the first line
-print data.readline()  # now read the next line
+print(data.readline())  # read the first line
+print(data.readline())  # now read the next line
 data.seek(0)  # return to the beginning of the file
 data.seek(25)  # seek to offset 25
-print data.read(4)  # read 4 bytes of data
+print(data.read(4))  # read 4 bytes of data
 data.close()  # close the file
 
 ''' open returns a file handler, open can take an optional second argument which specifies the mode in which the file would be opened.
@@ -769,7 +771,7 @@ fh.close()
 # Now let's verify what we just wrote
 fh = open('test.txt')
 for line in fh:
-    print line
+    print(line)
 fh.close()
 
 ''' Things might go wrong - handling exceptional situations
@@ -781,9 +783,9 @@ for i in range(10):
     try:
         'start: {}, step: {}'.format(start, step)
         step -= 1
-        print start / step
+        print(start / step)
     except:
-        print 'error occurred, recovering'
+        print('error occurred, recovering')
         pass
 
 ''' try-catch-finally: reading file in a safe manner
@@ -791,9 +793,9 @@ for i in range(10):
 try:    
     fh = open('test.txt')
     for line in fh:  # reading file, line by line
-        print line 
+        print(line) 
 except IOError as err:  # in case of IOError, recovery code can be placed here 
-    print 'File Read IO Error {}'.format(str(err))
+    print('File Read IO Error {}'.format(str(err)))
 finally:  # this part gets executed irrespective of whether error happens or not
     if 'fh' in locals():
         fh.close()
@@ -803,9 +805,9 @@ finally:  # this part gets executed irrespective of whether error happens or not
 try:
     with open('test.txt') as fh:
         for line in fh:
-            print line
+            print(line)
 except IOError as err:
-    print 'File read IO Error {}'.format(str(err))
+    print('File read IO Error {}'.format(str(err)))
 
 ''' Preserving Objects & Data: Serialization - Pickling with Python
     Whatever objects, data we construct in runtime go off as soon as Python interpreter stops. If we need to retain the object hierarchy or data across multiple
@@ -822,14 +824,14 @@ try:
     with open('pickle_test', 'wb') as pickle_file:  # w for write and b for binary mode
         pickle.dump(students_data, pickle_file)
 except IOError as err:
-    print 'File IO Error {}'.format(str(err))
+    print('File IO Error {}'.format(str(err)))
     
 # now the data is persisted and safe until your hard disc crashes!
 try:
     with open('pickle_test', 'rb') as pickle_file:
         students_dup_data = pickle.load(pickle_file)
 except IOError as err:
-    print 'File IO Error {}'.format(str(err))
+    print('File IO Error {}'.format(str(err)))
 
 pp.pprint(students_dup_data)  # yay! we got back the same data
 
@@ -844,7 +846,7 @@ try:
     with open('students_data.json', 'w') as json_file:
         json_file.write(serialized_str)
 except IOError as err:
-    print 'File IO Error {}'.format(str(err))
+    print('File IO Error {}'.format(str(err)))
 
 # Now we will try to get our data back
 try:
@@ -855,7 +857,7 @@ try:
         retrieved_json_str = ''.join(students_file_data)
         students_dup_data = json.loads(retrieved_json_str)
 except IOError as err:
-    print 'File IO Error {}'.format(str(err))
+    print('File IO Error {}'.format(str(err)))
 
 pp.pprint(students_dup_data)  # we got our students data back
 
@@ -899,9 +901,9 @@ pp.pprint(students_dup_data)  # we got our students data back
 test_var = 5
 def test_scope1():
     test_var = 10  # defining a new local variable test_var which will shadow the global test_var
-    print test_var, '[local scope]' 
+    print(test_var, '[local scope]') 
 test_scope1()
-print test_var, '[global scope]'
+print(test_var, '[global scope]')
 # Here is the output, which is in accordance with LEGB rule. Note that, global test_var remains unaffected  
 # 10 [local scope]
 # 5 [global scope]
@@ -911,9 +913,9 @@ test_var = 5
 def test_scope2():
     global test_var # telling python we are trying to refer the global variable, please note 'global' keyword
     test_var += 1
-print test_var, '[global scope]'
+print(test_var, '[global scope]')
 test_scope2()
-print test_var, '[global scope]'  
+print(test_var, '[global scope]')  
 # This time global variable was modified from within the local scope inside a function, output was:
 # 5 [global scope]
 # 6 [global scope]
@@ -921,9 +923,9 @@ print test_var, '[global scope]'
 # While modifying global variable from local scope, we have to explicitly specify that, but when reading python automatically query global scope if variable not present in local scope as per LEGB
 test_var = 5
 def test_scope3():
-    print test_var, '[local scope]'  # as per the LEGB rule, here test_var would be read from global scope since it's not present in local namespace 
+    print(test_var, '[local scope]')  # as per the LEGB rule, here test_var would be read from global scope since it's not present in local namespace 
 test_scope3()
-print test_var, '[global scope]'  
+print(test_var, '[global scope]')  
 # Output:
 # 5 [local scope]
 # 5 [global scope]
@@ -944,23 +946,23 @@ test_scope4()
 test_var = -17
 def outer_function():
     def abs(var):
-        print 'custom abs() implementation being invoked'
+        print('custom abs() implementation being invoked')
         return var if var > 0 else -1 * var  # amateur implementation, not for serious usage :-)  
     test_var = -12  # will shadow the global 'test_var'
     def inner_function():
         global abs  # linking to global abs i.e. __builtins__'s abs, without this abs(var) from enclosed scope would be available though 
-        print test_var  # 'test_var' from Enclosed scope as per LEGB rule
+        print(test_var)  # 'test_var' from Enclosed scope as per LEGB rule
         # test_var += 1 # this will result in UnboundLocalError: local variable referenced before assignment, though we could have pointed to
                         # global 'test_var', but with Python 2, we can't update Enclosed scope 'test_var'. Python3 has introduced 'nonlocal' keyword
                         # apart from 'global', through that we can refer to Enclosed scope's 'test_var' 
-        print abs(test_var)  # global __builtins__
+        print(abs(test_var))  # global __builtins__
     inner_function()
-    print test_var  # local version of 'test_var'
-    print abs(test_var)  # local version of abs() would be invoked here
+    print(test_var)  # local version of 'test_var'
+    print(abs(test_var))  # local version of abs() would be invoked here
 
 outer_function()
-print test_var
-print abs(test_var)
+print(test_var)
+print(abs(test_var))
 
 
 ''' Classy Python: Encapsulating data & behavior in Classes
@@ -991,10 +993,10 @@ class Item:
 
 # Item type or Category, ideally should be an enum or constants
 class ItemType:
-    BOOK, FOOD, MEDICINE, COSMETICS, MEDIA, GROCERY, MISC = range(7)
+    BOOK, FOOD, MEDICINE, COSMETICS, MEDIA, GROCERY, MISC = list(range(7))
 
 class UnitOfMeasurement:
-    UNIT, KG, LITRE, PACK = range(4)
+    UNIT, KG, LITRE, PACK = list(range(4))
 
 ''' Following class is a logical representation of Store Inventory, there should be always only one instance of this class across a particular store.
     We will try to model this class as a Singleton.
@@ -1024,10 +1026,10 @@ class StoreInventory:
                 return item
         
     def print_inventory(self):
-        print 'Printing Store Inventory:'
+        print('Printing Store Inventory:')
         for item in self.items:
-            print str(item)
-        print '[End]'
+            print(str(item))
+        print('[End]')
         
 '''' Let's design a shopping cart now 
 '''
@@ -1062,15 +1064,15 @@ class POSTerminalEnhanced:
     
     def print_bill(self, cart):
         running_balance = 0.0
-        print '{:<20} {:<15} {:<15} {:<10}'.format('Item', 'Rate', 'Quantity', 'Amount')
+        print('{:<20} {:<15} {:<15} {:<10}'.format('Item', 'Rate', 'Quantity', 'Amount'))
         for item in cart.items:
-            print '{:<20} {:<15} {:<15} {:<10}'.format(item.item_desc, item.item_price, item.quantity, item.item_price * item.quantity)
+            print('{:<20} {:<15} {:<15} {:<10}'.format(item.item_desc, item.item_price, item.quantity, item.item_price * item.quantity))
             running_balance += item.item_price * item.quantity
-        print '{:>52} {:<10}'.format('Total:', running_balance)
+        print('{:>52} {:<10}'.format('Total:', running_balance))
         return running_balance
     
     def receive_cash(self, amount):
-        print 'Receiving cash for the bill: ${}'.format(amount)
+        print('Receiving cash for the bill: ${}'.format(amount))
         pass  
             
 ''' Let's test whatever we have done so far
@@ -1079,9 +1081,9 @@ class POSTerminalEnhanced:
 inventory = StoreInventory() # create a store inventory
 inventory.load_items()       # initialize with the items
 
-print 'Stock before transaction: '
+print('Stock before transaction: ')
 inventory.print_inventory()  # print inventory details
-print '\n\n'
+print('\n\n')
 
 cart = ShoppingCart(inventory) # initialize a shopping cart with the inventory
 cart.add_to_cart(1, 2)         # let's do some shopping
@@ -1090,9 +1092,9 @@ cart.add_to_cart(2, 2)
 terminal = POSTerminalEnhanced()    # initializing a POS terminal
 terminal.check_out(cart)    # now it's time to check out, print the bill and pay.
 
-print 'Stock after transaction: '
+print('Stock after transaction: ')
 inventory.print_inventory() # now printing inventory again to check stock count
-print '\n\n'
+print('\n\n')
 
 ''' We promised to have the StoreInventory as singleton, but still it's not a singleton you may
     instantiate as many as instances you want. So how to do that?
@@ -1122,9 +1124,9 @@ class Counter:
     entire purpose of a global counter is lost. Let's play a cool trick. Let's wrap the Counter class with
     singleton method we had defined earlier.
 '''
-print type(Counter)     # prints <type 'classobj'>     
+print(type(Counter))     # prints <type 'classobj'>     
 Counter = singleton(Counter)
-print type(Counter)     # prints <type 'function'>
+print(type(Counter))     # prints <type 'function'>
 
 ''' The trick is here the Counter is not referring to a class.
     Rather it's decorated with a function, which when executed in turn returns the cached
@@ -1133,11 +1135,11 @@ print type(Counter)     # prints <type 'function'>
 counter1 = Counter()
 counter1.inc(2)
 counter1.inc()
-print counter1.count
+print(counter1.count)
 counter2 = Counter()
 # does the above statement creates a new instance altogether? Definitely not. Try to check the count variable of counter2.
-print counter2.count    # it still prints 3
-print counter1 == counter2      # print True, so we now sure counter1 and counter2 points to 
+print(counter2.count)    # it still prints 3
+print(counter1 == counter2)      # print True, so we now sure counter1 and counter2 points to 
                                 # same object, and Counter is indeed bahaves as a Singleton
                                 
 ''' Let's revisit the function singleton, it maintains a cache of objects, and returns a reference to an inner function
@@ -1201,10 +1203,10 @@ print counter1 == counter2      # print True, so we now sure counter1 and counte
 
 # example of unpacking
 def test_fun(a, b, c, d):
-    print a, b, c, d        
+    print(a, b, c, d)        
 
 my_list = [1, 2, 3, 4]
-print test_fun(*my_list)
+print(test_fun(*my_list))
 
 # example of packing 
 def sum(*args):
@@ -1213,18 +1215,18 @@ def sum(*args):
         sum = sum + i
     return sum
 
-print sum(1, 2, 3, 4, 5)
+print(sum(1, 2, 3, 4, 5))
 
 # ** is used for dictionary
 
 def fun_unpack(a, b, c):
-    print a, b, c
+    print(a, b, c)
     
 new_dict = {'a': 1, 'b': 2, 'c': 3}
 fun_unpack(**new_dict)
 
 def fun(**kwargs):
-    print type(kwargs)
-    print kwargs
+    print(type(kwargs))
+    print(kwargs)
     
 fun(name='Subhasis', age=35, city='Bangalore')

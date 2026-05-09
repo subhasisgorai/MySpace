@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 from unittest import TestCase
 from ps.zigzag_conversion import convert
 import unittest

@@ -6,6 +6,7 @@
     recursively divides.  
 '''
 
+from __future__ import absolute_import
 import heapq
 from itertools import islice
 from math import sqrt 
@@ -14,8 +15,6 @@ from random import uniform
 from matplotlib import patches
 
 import matplotlib.pyplot as plt
-
-
 class Point:
 
     def __init__(self, x, y):
@@ -134,7 +133,7 @@ def get_node_half_width_height(node):
 
     
 def points_in_region(x, y, w, h, points):
-    return filter(lambda point: x <= point.x <= x + w and y <= point.y <= y + h, points)
+    return [point for point in points if x <= point.x <= x + w and y <= point.y <= y + h]
 
 
 def find_children_recursive(node):

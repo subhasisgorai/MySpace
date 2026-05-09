@@ -1,6 +1,7 @@
 # interesting article https://hynek.me/articles/hashes-and-equality/
 
 
+from __future__ import print_function
 class C:
 
     def __init__(self, x):
@@ -29,13 +30,13 @@ if __name__ == '__main__':
     d[c] = 42
     s.add(c)
     
-    print d, s
-    print c in s and c in d
+    print(d, s)
+    print(c in s and c in d)
     
     c.x = 2
-    print c
+    print(c)
     
-    print c in s or c in d
-    print d, s
+    print(c in s or c in d)
+    print(d, s)
     
-    print C(1) in s or C(1) in d
+    print(C(1) in s or C(1) in d)

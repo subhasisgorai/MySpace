@@ -1,6 +1,6 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from timeit import repeat
-
-
 def bubble_sort(sequence):
     outer_counter = sequencer(len(sequence) - 1, step=-1)
     while True:
@@ -128,11 +128,11 @@ def __partition_it(sequence, left, right, pivot):
 
 def tester(sequence_for_sorting, sort_algo, verbose=True):
     if verbose:
-        print 'testing {} algorithm'.format(sort_algo.__name__)
-        print 'unsorted sequence: {}'.format(sequence_for_sorting)
+        print('testing {} algorithm'.format(sort_algo.__name__))
+        print('unsorted sequence: {}'.format(sequence_for_sorting))
     sort_algo(sequence_for_sorting)
     if verbose:
-        print 'sequence after {}: {}'.format(sort_algo.__name__, sequence_for_sorting)
+        print('sequence after {}: {}'.format(sort_algo.__name__, sequence_for_sorting))
 
 
 if __name__ == '__main__':
@@ -153,10 +153,10 @@ seed(1)
 sequence = [randint(0, 5000) for _ in range(500)]
     '''
     
-    print 'bubble_sort stats: {}'.format(repeat(stmt="tester(sequence, bubble_sort, False)", setup=SETUP_CODE, number=100, repeat=3))
-    print 'selection_sort stats: {}'.format(repeat(stmt="tester(sequence, selection_sort, False)", setup=SETUP_CODE, number=100, repeat=3))
-    print 'insertion_sort stats: {}'.format(repeat(stmt="tester(sequence, insertion_sort, False)", setup=SETUP_CODE, number=100, repeat=3))
-    print 'shell_sort stats: {}'.format(repeat(stmt="tester(sequence, shell_sort, False)", setup=SETUP_CODE, number=100, repeat=3))
-    print 'merge_sort stats: {}'.format(repeat(stmt="tester(sequence, merge_sort, False)", setup=SETUP_CODE, number=100, repeat=3))
-    print 'quick_sort stats: {}'.format(repeat(stmt="tester(sequence, quick_sort, False)", setup=SETUP_CODE, number=100, repeat=3))
+    print('bubble_sort stats: {}'.format(repeat(stmt="tester(sequence, bubble_sort, False)", setup=SETUP_CODE, number=100, repeat=3)))
+    print('selection_sort stats: {}'.format(repeat(stmt="tester(sequence, selection_sort, False)", setup=SETUP_CODE, number=100, repeat=3)))
+    print('insertion_sort stats: {}'.format(repeat(stmt="tester(sequence, insertion_sort, False)", setup=SETUP_CODE, number=100, repeat=3)))
+    print('shell_sort stats: {}'.format(repeat(stmt="tester(sequence, shell_sort, False)", setup=SETUP_CODE, number=100, repeat=3)))
+    print('merge_sort stats: {}'.format(repeat(stmt="tester(sequence, merge_sort, False)", setup=SETUP_CODE, number=100, repeat=3)))
+    print('quick_sort stats: {}'.format(repeat(stmt="tester(sequence, quick_sort, False)", setup=SETUP_CODE, number=100, repeat=3)))
 

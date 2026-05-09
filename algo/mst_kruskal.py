@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from ds.graph import Graph
 from ds.priority_queue import HeapPriorityQueue
 from ds.union_find import Partition
@@ -48,5 +50,5 @@ if __name__ == '__main__':
     g.insert_edge(e, f, 1)
     
     spanning_tree = mst_kruskal(g)
-    print spanning_tree
+    print(spanning_tree)
 

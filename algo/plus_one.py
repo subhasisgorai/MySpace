@@ -1,3 +1,4 @@
+from __future__ import print_function
 def plusOne(digits):
 
     def add_helper(digit):
@@ -19,7 +20,7 @@ def plusOne(digits):
         return digits
     
 if __name__ == '__main__':
-    print plusOne([1,2,3])
-    print plusOne([4,3,2,1])
-    print plusOne([0])
-    print plusOne([999])
+    print(plusOne([1,2,3]))
+    print(plusOne([4,3,2,1]))
+    print(plusOne([0]))
+    print(plusOne([999]))

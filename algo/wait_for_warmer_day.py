@@ -1,5 +1,6 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from collections import namedtuple
-
 DailyRecord = namedtuple('DailyRecord', ('temperature', 'day_index'))
 
 
@@ -30,5 +31,5 @@ def days_to_warmer_day_without_struct(temperature_arr):
     
 if __name__ == '__main__':
     temperature_arr = [73, 74, 75, 71, 69, 72, 76, 73]
-    print days_to_warmer_day(temperature_arr)
-    print days_to_warmer_day_without_struct(temperature_arr)
+    print(days_to_warmer_day(temperature_arr))
+    print(days_to_warmer_day_without_struct(temperature_arr))
